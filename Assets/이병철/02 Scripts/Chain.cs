@@ -17,7 +17,7 @@ public class Chain : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(IsFired);
+		
 		if (Input.GetButtonDown("Fire1"))
 		{
 			IsFired = true;
