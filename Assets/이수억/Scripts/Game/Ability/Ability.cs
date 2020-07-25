@@ -11,7 +11,7 @@ public enum AbilityKind
 	BulletBonus_2		= 1 << 4,			// 장탄수 증가.						Data
 	BulletBonus_3		= 1 << 5,			// 장탄수 증가.						Data
 
-	Divine				= 1 << 6,			// 무적시간 증가.						Data
+	Divine				= 1 << 6,			// 랜덤하게 무적됨					Data
 	
 	BulletSpdUp_1		= 1 << 7,			// 총알 속도 증가.					Data
 	BulletSpdUp_2		= 1 << 8,			// 총알 속도 증가.					Data
@@ -35,6 +35,7 @@ public enum AbilityKind
 
 	JumpUp				= 1 << 22,			// 점프력 증가.						Data
 	DoubleJump			= 1 << 23,			// 이단 점프.						Data
+	//Jump 보단 Dash 로.
 
 	Flame				= 1 << 24,			// 지나간 길에 불길					Data + Component
 	IceShot				= 1 << 25,			// 얼음 샷.							Data

@@ -35,6 +35,11 @@ public class Character : Actor
 
 	public HudController hud;
 
+	private void Awake()
+	{
+		Init();
+	}
+
 	public void Init()
 	{
 		stat = new PlayerStat();
