@@ -31,6 +31,8 @@ public class SlotMachineManager : MonoBehaviour
     public GameObject button_2;
 
     public int[] check;
+
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -176,6 +178,97 @@ public class SlotMachineManager : MonoBehaviour
             }
 
         }
+
+
+        AbilityChoice(buttonIndex);
+        Debug.Log("몇번 적용"+ buttonIndex);
+    }
+
+
+
+
+    void AbilityChoice(int _index)
+    {
+
+        switch (_index)
+        {
+            case 1:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.Double);
+                break;
+            case 2:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.Triple);
+                break;
+            case 3:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.BulletBonus_1);
+                break;
+            case 4:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.BulletBonus_2);
+                break;
+            case 5:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.BulletBonus_3);
+                break;
+            case 6:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.Divine);
+                break;
+            case 7:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.BulletSpdUp_1);
+                break;
+            case 8:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.BulletSpdUp_2);
+                break;
+            case 9:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.BulletSpdUp_3);
+                break;
+            case 10:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.PowerUp_1);
+                break;
+            case 11:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.PowerUp_2);
+                break;
+            case 12:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.PowerUp_3);
+                break;
+            case 13:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.HpUp_1);
+                break;
+            case 14:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.HpUp_2);
+                break;
+            case 15:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.HpUp_3);
+                break;
+            case 16:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.MovSpdUp_1);
+                break;
+            case 17:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.MovSpdUp_2);
+                break;
+            case 18:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.MovSpdUp_3);
+                break;
+            case 19:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.AroundBall);
+                break;
+            case 20:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.Penetrate);
+                break;
+            case 21:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.Flame);
+                break;
+            case 22:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.Healing_1);
+                break;
+            case 23:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.Healing_2);
+                break;
+            case 24:
+                StageMan.In.player.abilityCon.AddAbility(AbilityKind.Healing_3);
+                break;
+      
+        }
+           
+
+
 
     }
 }

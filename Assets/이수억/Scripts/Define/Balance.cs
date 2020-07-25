@@ -1,7 +1,7 @@
 ﻿public class Balance
 {
     //케릭터 능력 시작값
-    public const float ATK = 100f;
+    public const float ATK = 50f;
     public const float HP = 100f;
     public const float MOV_SPD = 2f;
     public const float BULLET_SPD = 2f;
@@ -25,13 +25,13 @@
     public const float BULLET_SPD_2 = 2f;                 //총알 속도증가.
     public const float BULLET_SPD_3 = 2f;                 //총알 속도증가.
 
-    public const float DAMAGE_INC_1 = 50f;                  //공격력 증가량
-    public const float DAMAGE_INC_2 = 100f;
-    public const float DAMAGE_INC_3 = 200f;
+    public const float DAMAGE_INC_1 = 10f;                  //공격력 증가량
+    public const float DAMAGE_INC_2 = 20f;
+    public const float DAMAGE_INC_3 = 30f;
 
-    public const float MAX_HP_INC_1 = 100f;             //최대 체력 증가량
-    public const float MAX_HP_INC_2 = 150f;
-    public const float MAX_HP_INC_3 = 200f;
+    public const float MAX_HP_INC_1 = 30f;             //최대 체력 증가량
+    public const float MAX_HP_INC_2 = 70f;
+    public const float MAX_HP_INC_3 = 100f;
 
     public const float MOV_SPD_INC_1 = 2f;
     public const float MOV_SPD_INC_2 = 2f;

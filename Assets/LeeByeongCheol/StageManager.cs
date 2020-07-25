@@ -30,6 +30,7 @@ public class StageManager : MonoBehaviour
 
     public GameObject ability;
     public bool isSlotMachine = false;
+    public bool isClearRoom = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +49,7 @@ public class StageManager : MonoBehaviour
         if (monsterCount >= monsterFinalCount)
         {
             //동전획득 후 진행
-
+            isClearRoom = true;
 
             switch (waveIndex) //삼지선다
             {
@@ -112,6 +113,7 @@ public class StageManager : MonoBehaviour
 
     private void WaveOpen()
     {
+        isClearRoom = false;
         stage[stageIndex].GetComponent<Wave>().wave[waveIndex].gameObject.SetActive(true);
         monsterFinalCount = stage[stageIndex].GetComponent<Wave>().monsterCount[waveIndex];
         //monsterFinalCount = 1;
