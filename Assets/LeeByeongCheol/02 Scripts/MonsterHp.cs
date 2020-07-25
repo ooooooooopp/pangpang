@@ -132,6 +132,7 @@ public class MonsterHp : MonoBehaviour , IDamagable
         {
 
             GameObject CoinClone = Instantiate(coin, transform.position, transform.rotation);
+            
 
         }    
 

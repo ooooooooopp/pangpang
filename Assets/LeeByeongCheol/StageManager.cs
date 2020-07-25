@@ -53,23 +53,24 @@ public class StageManager : MonoBehaviour
         {
             //동전획득 후 진행
             isClearRoom = true;
-
+            isSlotMachine = true;
+            ability.SetActive(true);
             switch (waveIndex) //삼지선다
             {
                 case 2:
                     bgMgr.GetComponent<BackGroundMgr>().BGChange();
-                    isSlotMachine = true;
-                    ability.SetActive(true);
+                    //isSlotMachine = true;
+                    //ability.SetActive(true);
                     break;
                 case 5:
                     bgMgr.GetComponent<BackGroundMgr>().BGChange();
-                    isSlotMachine = true;
-                    ability.SetActive(true);
+                    //isSlotMachine = true;
+                    //ability.SetActive(true);
                     break;
                 case 8:
                     bgMgr.GetComponent<BackGroundMgr>().BGChange();
-                    isSlotMachine = true;
-                    ability.SetActive(true);
+                    //isSlotMachine = true;
+                    //ability.SetActive(true);
                     break;
             }
 
@@ -121,6 +122,7 @@ public class StageManager : MonoBehaviour
         isClearRoom = false;
         stage[stageIndex].GetComponent<Wave>().wave[waveIndex].gameObject.SetActive(true);
         monsterFinalCount = stage[stageIndex].GetComponent<Wave>().monsterCount[waveIndex];
+        monsterCount = 0;
         //monsterFinalCount = 1;
 
         /*테스트 
