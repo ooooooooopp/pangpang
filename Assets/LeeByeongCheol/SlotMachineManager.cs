@@ -35,6 +35,9 @@ public class SlotMachineManager : MonoBehaviour
 
     // Start is called before the first frame update
 
+
+
+    public List<Sprite> sprList = new List<Sprite>();
     private void Awake()
     {
         check = new int[SkillSprite.Length];
@@ -77,12 +80,12 @@ public class SlotMachineManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("널입니다");
+
                     for (int m = 0; m < check.Length; m++)
                     {
                         if (check[m] == 0)
                         {
-                            Debug.Log("널입니다1");
+
                             DisplayItemSlots[i].SlotSprite[j].sprite = SkillSprite[StartList[m]];
                             Debug.Log(SkillSprite[StartList[m]]);
                             break;
@@ -100,8 +103,7 @@ public class SlotMachineManager : MonoBehaviour
                 if (j == 0)
                 {
                     DisplayItemSlots[i].SlotSprite[ItemCnt].sprite = SkillSprite[StartList[randomIndex]];
-                    Debug.Log(DisplayItemSlots[i].SlotSprite[ItemCnt].sprite);
-                    Debug.Log("테스트");
+
                 }
                 StartList.RemoveAt(randomIndex);
             }
@@ -163,9 +165,6 @@ public class SlotMachineManager : MonoBehaviour
 
 
 
-        //Debug.LogError(buttonIndex - 1);
-        //SkillSprite[buttonIndex - 1] = null;
-        //SkillSprite[buttonIndex - 1] =
 
         for (int i = 0; i < check.Length+3; i++)
         {
@@ -173,6 +172,7 @@ public class SlotMachineManager : MonoBehaviour
             {
                 Debug.Log(i);
                 check[i] = 1;
+                sprList.Add(SkillSprite[buttonIndex - 1]);
                 SkillSprite[buttonIndex - 1] = SkillSprite[i];
                 break;
             }
