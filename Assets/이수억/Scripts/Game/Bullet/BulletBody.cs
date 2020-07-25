@@ -9,15 +9,24 @@ namespace Projectile
 		void OnTriggerEnter2D( Collider2D col )
 		{
 			if ( col.tag == TagName.BALL ) {
-				col.GetComponent<IDamagable>().TakeDamage( new DamagableData() {
+				var dmgable = col.GetComponent<IDamagable>();
+				if ( dmgable == null )
+					return;
+
+				dmgable.TakeDamage( new DamagableData() {
 					attacker = bullet.cGameObj,
 					damage = bullet.data.damage,
 				} );
 
-				if( bullet.data.isPenetrate == false ) {
+				var fx = PoolFactory.In.GenerateFx( "BurstFx", StageMan.In.con.holder.bulletHolder );
+				fx.Activate( col.transform.position );
+
+				if ( bullet.data.isPenetrate == false ) {
 					bullet.Recycle();
 				}
 			} else if ( col.tag == TagName.WALL ) {
+				var fx = PoolFactory.In.GenerateFx( "BurstFx", StageMan.In.con.holder.bulletHolder );
+				fx.Activate( bullet.position );
 				bullet.Recycle();
 			}
 		}

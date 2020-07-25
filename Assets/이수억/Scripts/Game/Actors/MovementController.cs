@@ -16,7 +16,7 @@ public enum PlayerState
 
 public class MovementController : PlayerController
 {
-	MMStateMachine<PlayerState> state;
+	public MMStateMachine<PlayerState> state;
 
 	public Rigidbody2D rb;
 
@@ -24,6 +24,7 @@ public class MovementController : PlayerController
 	float beforeInput = 0f;
 
 	//float noInputTerm = 0f;
+
 
 	public override void Init( Character c )
 	{
@@ -54,6 +55,7 @@ public class MovementController : PlayerController
 			Transition( PlayerState.move, false );
 		} else {
 			Transition( PlayerState.idle, false );
+
 		}
 
 		beforeInput = moveDir;
@@ -70,11 +72,11 @@ public class MovementController : PlayerController
 		rb.MovePosition( rb.position + new Vector2( moveDir * Time.fixedDeltaTime * c.stat.movSpd, 0f ) );
 	}
 
-	Coroutine endActionCo = null;
+	//Coroutine endActionCo = null;
 
 	public void Transition(PlayerState targetState, bool forceChange = false )
 	{
-		Log.Check.I( $"[Transition] Try {targetState}" );
+		//Log.Check.I( $"[Transition] Try {targetState}" );
 
 		if ( targetState == state.CurrentState && forceChange == false)
 			return;
@@ -115,15 +117,15 @@ public class MovementController : PlayerController
 				break;
 		}
 
-		Log.Check.I( $"[Transition] - Success {targetState}" );
+		//Log.Check.I( $"[Transition] - Success {targetState}" );
 		state.ChangeState( targetState );
 	}
 
-	IEnumerator EndActionCo(float time, Action action)
-	{
-		yield return new WaitForSeconds( time );
-		action?.Invoke();
-	}
+	//IEnumerator EndActionCo(float time, Action action)
+	//{
+	//	yield return new WaitForSeconds( time );
+	//	action?.Invoke();
+	//}
 
 	void OnHitEnd()
 	{

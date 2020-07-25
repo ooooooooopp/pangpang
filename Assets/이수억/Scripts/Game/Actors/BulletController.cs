@@ -167,21 +167,3 @@ public class BulletController : PlayerController
 
 
 }
-
-
-public static class ComplexEx
-{
-	public static Vector2 ComplexMult( this Vector2 aVec, Vector2 aOther )
-	{
-		return new Vector2( aVec.x * aOther.x - aVec.y * aOther.y, aVec.x * aOther.y + aVec.y * aOther.x );
-	}
-	public static Vector2 Rotation( float aDegree )
-	{
-		float a = aDegree * Mathf.Deg2Rad;
-		return new Vector2( Mathf.Cos( a ), Mathf.Sin( a ) );
-	}
-	public static Vector2 Rotate( this Vector2 aVec, float aDegree )
-	{
-		return ComplexMult( aVec, Rotation( aDegree ) );
-	}
-}

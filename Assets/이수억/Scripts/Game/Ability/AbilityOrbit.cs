@@ -9,8 +9,8 @@ public class AbilityOrbit : Ability
 
 	public void Activate()
 	{
-		orbits.Add( GenOrbit( new Vector3( 1f, 0, 0 ) ) );
-		orbits.Add( GenOrbit( new Vector3( -1f, 0, 0 ) ) );
+		orbits.Add( GenOrbit( new Vector3( 1.5f, 0, 0 ) ) );
+		orbits.Add( GenOrbit( new Vector3( -1.5f, 0, 0 ) ) );
 	}
 
 	public void DeActivate()

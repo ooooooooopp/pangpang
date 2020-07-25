@@ -13,6 +13,7 @@ public class PoolFactory : MonoSingleton<PoolFactory>
         PoolMgr.In.Create( PoolMgr.POOL_BULLET, "Prefabs/Bullet/" );
         PoolMgr.In.Create( PoolMgr.POOL_MONSTER, "Prefabs/Monsters/" );
         PoolMgr.In.Create( PoolMgr.POOL_SKILL, "Prefabs/Skill/" );
+        PoolMgr.In.Create( PoolMgr.POOL_FX, "Prefabs/Fx/" );
     }
 
     public Bullet GenerateBullet(string prefabName, Transform parent )
@@ -36,10 +37,10 @@ public class PoolFactory : MonoSingleton<PoolFactory>
         return obj;
     }
 
-    //public Card GenerateCard( string prefabName, Transform parent )
-    //{
-    //    var obj = PoolMgr.In.GetSafe( PoolMgr.POOL_CARD, prefabName ).GetComponent<Card>();
-    //    obj.transform.SetParentTm( parent );
-    //    return obj;
-    //}
+    public ParticleFx GenerateFx( string prefabName, Transform parent )
+    {
+        var obj = PoolMgr.In.GetSafe( PoolMgr.POOL_FX, prefabName ).GetComponent<ParticleFx>();
+        obj.cTrf.SetParentTm( parent );
+        return obj;
+    }
 }
