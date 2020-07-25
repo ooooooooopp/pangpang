@@ -41,18 +41,17 @@ public class PlayerStat
     {
         this.c = c;
 
-        atk = 100;
-        maxHp = 100;
-        hp = maxHp;
-        movSpd = 2f;
+        atk = Balance.ATK;
+        maxHp = Balance.HP;
+        hp = Balance.HP;
+        movSpd = Balance.MOV_SPD;
 
-        bulletSpd = 2f;
-        maxBulletCount = 1;
+        bulletSpd = Balance.BULLET_SPD;
+        maxBulletCount = Balance.BULLET_COUNT;
 
-        divTime = 5f;
-        stopTime = 5f;
-        jumpPower = 100f;
-
+        divTime = Balance.DIVINE_TIME;
+        stopTime = Balance.STOP_TIME;
+        jumpPower = Balance.JUMP_POWER;
         healing = 0f;
     }
 
@@ -74,63 +73,63 @@ public class PlayerStat
             case AbilityKind.Triple:
                 break;
             case AbilityKind.BulletBonus_1:
-                maxBulletCount += 1;
+                maxBulletCount += Balance.BULLET_BONUS_1;
                 break;
             case AbilityKind.BulletBonus_2:
-                maxBulletCount += 2;
+                maxBulletCount += Balance.BULLET_BONUS_2;
                 break;
             case AbilityKind.BulletBonus_3:
-                maxBulletCount += 3;
+                maxBulletCount += Balance.BULLET_BONUS_3;
                 break;
             case AbilityKind.Divine:
-                divTime += 5f;
+                divTime += Balance.DIVINE_TIME_INC;
                 break;
             case AbilityKind.BulletSpdUp_1:
-                bulletSpd += 2f;
+                bulletSpd += Balance.BULLET_SPD_1;
                 break;
             case AbilityKind.BulletSpdUp_2:
-                bulletSpd += 4f;
+                bulletSpd += Balance.BULLET_SPD_2;
                 break;
             case AbilityKind.BulletSpdUp_3:
-                bulletSpd += 6f;
+                bulletSpd += Balance.BULLET_SPD_3;
                 break;
             case AbilityKind.PowerUp_1:
-                atk += 50f;
+                atk += Balance.DAMAGE_INC_1;
                 break;
             case AbilityKind.PowerUp_2:
-                atk += 100f;
+                atk += Balance.DAMAGE_INC_2;
                 break;
             case AbilityKind.PowerUp_3:
-                atk += 150f;
+                atk += Balance.DAMAGE_INC_3;
                 break;
             case AbilityKind.HpUp_1:
-                maxHp += 100f;
+                maxHp += Balance.MAX_HP_INC_1;
                 break;
             case AbilityKind.HpUp_2:
-                maxHp += 150f;
+                maxHp += Balance.MAX_HP_INC_2;
                 break;
             case AbilityKind.HpUp_3:
-                maxHp += 200f;
+                maxHp += Balance.MAX_HP_INC_3;
                 break;
             case AbilityKind.MovSpdUp_1:
-                movSpd += 2f;
+                movSpd += Balance.MOV_SPD_INC_1;
                 break;
             case AbilityKind.MovSpdUp_2:
-                movSpd += 2f;
+                movSpd += Balance.MOV_SPD_INC_2;
                 break;
             case AbilityKind.MovSpdUp_3:
-                movSpd += 2f;
+                movSpd += Balance.MOV_SPD_INC_3;
                 break;
             case AbilityKind.AroundBall:
                 break;
             case AbilityKind.TimerUp:
-                stopTime = 5f;
+                stopTime = Balance.TIME_INC;
                 break;
             case AbilityKind.Penetrate:
                 break;
             case AbilityKind.JumpUp:
-                jumpPower += 10f;
-                break;
+                jumpPower += Balance.JUMP_POWER_UP;
+                break;        
             case AbilityKind.DoubleJump:
                 break;
             case AbilityKind.Flame:
@@ -138,13 +137,13 @@ public class PlayerStat
             case AbilityKind.IceShot:
                 break;
             case AbilityKind.Healing_1:
-                healing += 5f;
+                healing += Balance.HEALING_INC_1;
                 break;
             case AbilityKind.Healing_2:
-                healing += 10f;
+                healing += Balance.HEALING_INC_2;
                 break;
             case AbilityKind.Healing_3:
-                healing += 15f;
+                healing += Balance.HEALING_INC_3;
                 break;
             default:
                 break;

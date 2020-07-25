@@ -8,7 +8,7 @@ public class AbilityHealing : Ability
 	public void Activate()
 	{
 		if( isOn == false ) {
-			InvokeRepeating( "Healing", 0f, 1f );
+			InvokeRepeating( "Healing", 0f, Balance.HEALING_TERM );
 			isOn = true;
 		}
 	}
