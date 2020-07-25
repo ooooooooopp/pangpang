@@ -25,6 +25,7 @@ public class MovementController : PlayerController
 
 	//float noInputTerm = 0f;
 
+
 	public override void Init( Character c )
 	{
 		base.Init( c );
@@ -54,6 +55,7 @@ public class MovementController : PlayerController
 			Transition( PlayerState.move, false );
 		} else {
 			Transition( PlayerState.idle, false );
+
 		}
 
 		beforeInput = moveDir;
@@ -115,7 +117,7 @@ public class MovementController : PlayerController
 				break;
 		}
 
-		Log.Check.I( $"[Transition] - Success {targetState}" );
+		//Log.Check.I( $"[Transition] - Success {targetState}" );
 		state.ChangeState( targetState );
 	}
 
