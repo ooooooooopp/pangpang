@@ -40,7 +40,7 @@ public class StageManager : MonoBehaviour
 
         waveIndex = 0;
         StageOpen();
-        
+
     }
 
 
