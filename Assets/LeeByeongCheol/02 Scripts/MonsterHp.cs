@@ -7,7 +7,7 @@ public class MonsterHp : MonoBehaviour , IDamagable
 {
     // Start is called before the first frame update
 
-    public float initHp = 100.0f;
+    public float initHp = 1000.0f;
     public float currHp;
 
     public Image hpBar;
@@ -20,12 +20,18 @@ public class MonsterHp : MonoBehaviour , IDamagable
     public Rigidbody2D rb;
 
     public float damagePower;
+
+    public SpriteRenderer spr;
+
+    public GameObject coin;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(startForce, ForceMode2D.Impulse);
         currHp = initHp;
-        
+        spr = GetComponent<SpriteRenderer>();
+
+
     }
 
     /*
@@ -68,8 +74,10 @@ public class MonsterHp : MonoBehaviour , IDamagable
         currHp -= data.damage;
 
         hpBar.fillAmount = (currHp / initHp);
+        StartCoroutine(InBeatTime());
         if (currHp <= 0.0f)
         {
+            CoinDrop();
             MonsterDie();
             return true;
         }
@@ -77,7 +85,7 @@ public class MonsterHp : MonoBehaviour , IDamagable
     }
 
     public float power = 50f;
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == TagName.PLAYER)
         {
@@ -89,5 +97,44 @@ public class MonsterHp : MonoBehaviour , IDamagable
         }
     }
 
+    
+    IEnumerator InBeatTime()
+    {
+        int countTime = 0;
+        while (countTime < 10)
+        {
+            if(countTime%2 ==0)
+            {
+                spr.color = new Color32(255, 255, 255, 90);
+         
+            }
+            else
+            {
+                spr.color = new Color32(255, 255, 255, 180);
+
+                
+            }
+            yield return new WaitForSeconds(0.2f);
+
+            countTime++;
+
+        }
+        spr.color = new Color32(255, 255, 255, 255);
+
+        yield return null;
+
+    }
+
+
+    void CoinDrop()
+    {
+        for (int i = 0; i < Random.Range(0, 2) ;i++)
+        {
+
+            GameObject CoinClone = Instantiate(coin, transform.position, transform.rotation);
+
+        }    
+
+    }
 
 }
