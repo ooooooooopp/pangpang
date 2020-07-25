@@ -40,6 +40,8 @@ public class StageManager : MonoBehaviour
     public Text gold_text;
 
     public int gold;
+
+    public GameObject Pause;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +51,10 @@ public class StageManager : MonoBehaviour
 
     }
 
-
+    private void Update()
+    {
+        
+    }
 
     public void MonsterDie()
     {
