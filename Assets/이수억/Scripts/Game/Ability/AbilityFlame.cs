@@ -1,30 +1,37 @@
-﻿using System.Collections;
+﻿using System.CodeDom;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AbilityFlame : Ability
 {
-	public GameObject pfOrbit;
-	public List<Orbit> orbits = new List<Orbit>();
-
+	Coroutine co = null;
 	public void Activate()
 	{
-		orbits.Add( GenOrbit( new Vector3( 1f, 0, 0 ) ) );
-		orbits.Add( GenOrbit( new Vector3( -1f, 0, 0 ) ) );
+		if ( co != null ) StopCoroutine( co );
+		co = StartCoroutine( FlameGenCo() );
 	}
 
 	public void DeActivate()
 	{
-		for ( int i = orbits.Count - 1; i >= 0; i-- ) {
-			Destroy( orbits[i].gameObject );
-		}
-		orbits.Clear();
+		if ( co != null ) 
+			StopCoroutine( co );
 	}
 
-	Orbit GenOrbit( Vector3 offset )
+	IEnumerator FlameGenCo()
 	{
-		var orbit = Instantiate( pfOrbit, transform ).GetComponent<Orbit>();
-		orbit.Activate( offset, c );
-		return orbit;
+		WaitForSeconds sec = new WaitForSeconds( 0.5f );
+		while ( true ) {
+			yield return sec;
+			GenFlame();
+		}
+	}
+
+	Flame GenFlame( )
+	{
+		var flame = PoolFactory.In.GenerateSkill( "Flame", StageMan.In.con.holder.bulletHolder ).GetComponent<Flame>();
+		flame.Init( c );
+		flame.Activate( c.foot.position );
+		return flame;
 	}
 }

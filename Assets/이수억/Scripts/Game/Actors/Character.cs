@@ -36,6 +36,9 @@ public class Character : Actor
 
 	public HudController hud;
 
+	public Transform body;
+	public Transform foot;
+
 	private void Awake()
 	{
 		Init();

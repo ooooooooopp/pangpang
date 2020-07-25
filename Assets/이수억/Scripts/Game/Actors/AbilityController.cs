@@ -16,6 +16,7 @@ public class AbilityController : PlayerController
         heal.Init( c );
         orbit.Init( c );
         divine.Init( c );
+        flame.Init( c );
     }
 
     public void AddAbility(AbilityKind kind)
@@ -34,6 +35,10 @@ public class AbilityController : PlayerController
 
         if( kind == AbilityKind.Divine ) {
             divine.Activate();
+        }
+
+        if( kind == AbilityKind.Flame ) {
+            flame.Activate();
         }
 
         Broadcaster.SendEvent( Constant.Event.RefreshUI, TypeOfMessage.dontRequireReceiver );
