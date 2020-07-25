@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/곽준구/character_select.meta
+guid: 280b2eeab1dd77844a922d7620a66bcc
+=======
 guid: a94d6b0460a80694c850bfc325c40147
+>>>>>>> 59bb63565d3eaf61666c4d3606d4a357ea777121:Assets/Plugins.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

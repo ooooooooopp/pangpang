@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: b4a76513770b84d47b1fff78439e04b1
-TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -765150924802650856
-    second: arrow_0
-=======
-guid: 82fb2baca6c759346af61b9a9dba594a
+guid: 3d6f2f3709f07f04395a2f3dd6372679
 TextureImporter:
   internalIDToNameTable: []
->>>>>>> cf62c427bfa75e2c06e183c79f74ca0e13316bc4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -45,26 +36,17 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 2
-=======
   spriteMode: 1
->>>>>>> cf62c427bfa75e2c06e183c79f74ca0e13316bc4
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
-  spritePixelsToUnits: 18
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-=======
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 24, z: 0, w: 0}
->>>>>>> cf62c427bfa75e2c06e183c79f74ca0e13316bc4
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -75,14 +57,14 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -94,7 +76,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,7 +88,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,32 +97,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-<<<<<<< HEAD
-    sprites:
-    - serializedVersion: 2
-      name: arrow_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 8}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81d839fa943a165f0800000000000000
-      internalID: -765150924802650856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-=======
     sprites: []
->>>>>>> cf62c427bfa75e2c06e183c79f74ca0e13316bc4
     outline: []
     physicsShape: []
     bones: []
