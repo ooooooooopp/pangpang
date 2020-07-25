@@ -1,5 +1,6 @@
 ﻿using Projectile;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -47,6 +48,13 @@ public class BulletController : PlayerController
 		shots.Clear();
 	}
 
+	public override void Fin()
+	{
+		if ( fireCo != null )
+			StopCoroutine( fireCo );
+		base.Fin();
+	}
+
 	public override void Process()
 	{
 		base.Process();
@@ -75,6 +83,34 @@ public class BulletController : PlayerController
 	{
 		if ( shots.Count >= c.stat.maxBulletCount )
 			return;
+
+		//if ( fireCo != null ) StopCoroutine( fireCo );
+		//fireCo = StartCoroutine( FireCo() );
+
+		c.moveCon.Transition( PlayerState.attkck, true );
+
+		if ( c.abilityCon.HasAbility( AbilityKind.Double ) ) {
+			curKind = BulletKind.DoubleChain;
+		}
+
+		Shot shot = new Shot( OnClearShot );
+		if ( c.abilityCon.HasAbility( AbilityKind.Triple ) ) {
+			Shoot( 0f, shot );
+			Shoot( 45f, shot );
+			Shoot( -45f, shot );
+		} else {
+			Shoot( 0f, shot );
+		}
+		shots.Add( shot );
+
+	}
+
+	Coroutine fireCo = null;
+	IEnumerator FireCo()
+	{
+		yield return new WaitForSeconds( 0.1f );
+		c.moveCon.Transition( PlayerState.attkck, true );
+
 
 		if ( c.abilityCon.HasAbility( AbilityKind.Double ) ) {
 			curKind = BulletKind.DoubleChain;
@@ -112,7 +148,7 @@ public class BulletController : PlayerController
 			speed = c.stat.bulletSpd,
 			isPenetrate = c.abilityCon.HasAbility(AbilityKind.Penetrate),
 		}, onRecycle );
-		bullet.Activate( c.position + offset );
+		bullet.Activate( c.foot.position + offset );
 		return bullet;
 	}
 

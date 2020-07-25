@@ -40,8 +40,6 @@ public class AbilityController : PlayerController
         if( kind == AbilityKind.Flame ) {
             flame.Activate();
         }
-
-        Broadcaster.SendEvent( Constant.Event.RefreshUI, TypeOfMessage.dontRequireReceiver );
     }
 
     public bool HasAbility(AbilityKind kind )

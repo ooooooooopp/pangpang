@@ -1,4 +1,5 @@
 using DevelopeCommon;
+using MoreMountains.Tools;
 using System;
 using UnityEngine;
 
@@ -23,16 +24,26 @@ public abstract class PlayerController : MonoBehaviour
 	}
 }
 
+public enum CharKind
+{
+	man,
+	woman,
+}
+
 //플레이어 스탯 있을예정인것.
 //공격력 공격속도 체력 이동속도
 public class Character : Actor
 {
+	public CharKind gender;
+
 	public PlayerStat stat;
 	public AbilityController abilityCon;
 	public BulletController bulletCon;
 	public MovementController moveCon;
 
 	public PlayerDamageChecker dmgChecker;
+
+	public RenderController render;
 
 	public HudController hud;
 
@@ -54,6 +65,7 @@ public class Character : Actor
 		moveCon.Init( this );
 		hud.Init( this );
 		dmgChecker.Init( this );
+		render.Init( this );
 	}
 
 
@@ -63,6 +75,9 @@ public class Character : Actor
 		bulletCon.Fin();
 		moveCon.Fin();
 		hud.Fin();
+		render.Fin();
+
+		dmgChecker.Fin();
 	}
 
 	void Update()

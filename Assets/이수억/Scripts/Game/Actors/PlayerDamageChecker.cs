@@ -12,6 +12,11 @@ public class PlayerDamageChecker : MonoBehaviour, IDamagable
 		this.c = c;
 	}
 
+	public void Fin()
+	{
+
+	}
+
 	public bool TakeDamage( DamagableData data )
 	{
 		if( c.stat.isDivine ) {
@@ -19,12 +24,16 @@ public class PlayerDamageChecker : MonoBehaviour, IDamagable
 			return false;
 		}
 
+		if ( c.stat.isDie )
+			return false;
+
 		c.stat.hp -= data.damage;
-		Broadcaster.SendEvent( Constant.Event.RefreshUI, TypeOfMessage.dontRequireReceiver );
 		if ( c.stat.hp <= 0 ) {
-			c.OnDie();
+			c.moveCon.Transition( PlayerState.die, true );
 			//StageMan.In.GameOver();
 			return true;
+		} else {
+			c.moveCon.Transition( PlayerState.hit, false );
 		}
 		return false;
 	}
