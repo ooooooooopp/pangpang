@@ -41,6 +41,7 @@ public class Coin : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x, player.transform.position.y+0.5f, player.transform.position.z), 0.2f);
                 if (transform.position == new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z))
                 {
+                    StageManager.Inst.gold++;
                     this.gameObject.SetActive(false);
                 }
                 yield return null;

@@ -71,6 +71,10 @@ public class MonsterHp : MonoBehaviour , IDamagable
 
     public bool TakeDamage(DamagableData data)
     {
+        if(!this.gameObject.activeSelf)
+        {
+            return false;
+        }
         currHp -= data.damage;
 
         hpBar.fillAmount = (currHp / initHp);

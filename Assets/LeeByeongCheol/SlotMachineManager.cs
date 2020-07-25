@@ -181,7 +181,7 @@ public class SlotMachineManager : MonoBehaviour
 
 
         AbilityChoice(buttonIndex);
-        Debug.Log("몇번 적용"+ buttonIndex);
+
     }
 
 

@@ -12,6 +12,7 @@ public class HudController : PlayerController
 	{
 		base.Process();
 
+		Debug.Log("체력" + c.stat.maxHp);
 		hpBar.fillAmount = c.stat.hp / c.stat.maxHp;
 		bulletBar.fillAmount = c.stat.bulletCount / (float)c.stat.maxBulletCount;
 	}
