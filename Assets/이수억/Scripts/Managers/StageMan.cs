@@ -17,15 +17,14 @@ public class StageMan : SingletonMonoD<StageMan>
 	Coroutine startCo = null;
 
 	public GameObject pfPlayer;
-	[HideInInspector]
 	public Character player = null;
 
 	public void Init( StageConstructor con )
 	{
 		this.con = con;
 
-		if ( startCo != null ) startCo = null;
-		startCo = StartCoroutine( StartGameCo() );
+		//if ( startCo != null ) startCo = null;
+		//startCo = StartCoroutine( StartGameCo() );
 
 		ui.Init();
 	}
@@ -43,7 +42,6 @@ public class StageMan : SingletonMonoD<StageMan>
 	{
 		GeneratePlayer();
 		GenerateBall();
-
 		yield return null;
 	}
 
