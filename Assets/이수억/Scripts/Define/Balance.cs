@@ -4,7 +4,7 @@
     public const float ATK = 100f;
     public const float HP = 1000f;
     public const float MOV_SPD = 3f;
-    public const float BULLET_SPD = 1f;
+    public const float BULLET_SPD = 2f;
     public const int BULLET_COUNT = 1;
 
     public const float DIVINE_TIME = 2f;            //무적이 지속되는 시간, 무적이 걸리는건 랜덤합니다. (1f ~ 5f)

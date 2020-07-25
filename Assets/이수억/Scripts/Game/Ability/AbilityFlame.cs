@@ -6,6 +6,8 @@ using UnityEngine;
 public class AbilityFlame : Ability
 {
 	Coroutine co = null;
+	public float flameTerm => c.moveCon.state.CurrentState == PlayerState.move ? 0.25f : 1f;
+
 	public void Activate()
 	{
 		if ( co != null ) StopCoroutine( co );
@@ -20,9 +22,8 @@ public class AbilityFlame : Ability
 
 	IEnumerator FlameGenCo()
 	{
-		WaitForSeconds sec = new WaitForSeconds( 0.5f );
 		while ( true ) {
-			yield return sec;
+			yield return new WaitForSeconds( flameTerm );
 			GenFlame();
 		}
 	}
@@ -31,7 +32,7 @@ public class AbilityFlame : Ability
 	{
 		var flame = PoolFactory.In.GenerateSkill( "Flame", StageMan.In.con.holder.bulletHolder ).GetComponent<Flame>();
 		flame.Init( c );
-		flame.Activate( c.foot.position );
+		flame.Activate( c.foot.position + Vector3.up * 0.1f );
 		return flame;
 	}
 }
