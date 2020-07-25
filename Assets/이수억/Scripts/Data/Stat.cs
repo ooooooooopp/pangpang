@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DevelopeCommon;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -50,6 +51,14 @@ public class PlayerStat
         jumpPower = 100f;
 
         healing = 0f;
+    }
+
+    public void Heal(float adder )
+    {
+        hp += adder;
+        if ( hp >= maxHp )
+            hp = maxHp;
+
     }
 
     public void AddAbility(AbilityKind kind)

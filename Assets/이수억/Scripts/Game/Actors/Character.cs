@@ -1,3 +1,4 @@
+using DevelopeCommon;
 using UnityEngine;
 
 public abstract class PlayerController : MonoBehaviour
@@ -30,6 +31,8 @@ public class Character : Actor, IDamagable
 	public BulletController bulletCon;
 	public MovementController moveCon;
 
+	public HudController hud;
+
 	public void Init()
 	{
 		stat = new PlayerStat();
@@ -38,6 +41,7 @@ public class Character : Actor, IDamagable
 		abilityCon.Init(this);
 		bulletCon.Init(this);
 		moveCon.Init( this );
+		hud.Init( this );
 	}
 
 	public void Fin()
@@ -45,6 +49,7 @@ public class Character : Actor, IDamagable
 		abilityCon.Fin();
 		bulletCon.Fin();
 		moveCon.Fin();
+		hud.Fin();
 	}
 
 	void Update()
@@ -52,24 +57,18 @@ public class Character : Actor, IDamagable
 		abilityCon.Process();
 		bulletCon.Process();
 		moveCon.Process();
+		hud.Process();
 	}
 
-
-	void OnCollisionEnter2D( Collision2D col )
-	{
-		if ( col.collider.tag == TagName.BALL ) {
-			StageMan.In.GameOver();
-		}
-	}
-
+	//피격받았다면 data 에 의한처리를 한다.	
 	public bool TakeDamage( DamagableData data )
 	{
 		stat.hp -= data.damage;
-		//if( stat.hp <= 0 ) {
-		//	StageMan.In.GameOver();
-		//}
-
-
-		return true;
+		Broadcaster.SendEvent( Constant.Event.RefreshUI, TypeOfMessage.dontRequireReceiver );
+		if( stat.hp <= 0 ) {
+			StageMan.In.GameOver();
+			return true;
+		}
+		return false;
 	}
 }

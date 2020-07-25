@@ -6,12 +6,15 @@ namespace UI
 {
 	public class UIGameTest : MonoBehaviour
 	{
+		public UIAbilityTest uiAbility;
+
 		public GameObject pfStat;
 		public Transform statHolder;
 
 		public void Init()
 		{
 			GenerateStates();
+			uiAbility.Init();
 		}
 
 		public void GenerateStates()
@@ -25,5 +28,4 @@ namespace UI
 			}
 		}
 	}
-
 }
