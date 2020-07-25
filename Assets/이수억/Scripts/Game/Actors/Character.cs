@@ -70,11 +70,14 @@ public class Character : Actor
 		hud.Process();
 	}
 
+	public void OnDie()
+	{
+		Fin();
+		Destroy( gameObject );
+	}
 
 	public void ToggleDivine( bool isOn )
 	{
-		stat.isDivine = true;
-
+		stat.isDivine = isOn;
 	}
-
 }

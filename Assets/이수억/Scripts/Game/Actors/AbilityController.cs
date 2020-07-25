@@ -6,6 +6,8 @@ public class AbilityController : PlayerController
     public AbilityHealing heal;
     public AbilityOrbit orbit;
     public AbilityDivine divine;
+    public AbilityFlame flame;
+
     public AbilityKind kinds;
 
     public override void Init( Character c )

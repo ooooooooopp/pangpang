@@ -22,7 +22,8 @@ public class PlayerDamageChecker : MonoBehaviour, IDamagable
 		c.stat.hp -= data.damage;
 		Broadcaster.SendEvent( Constant.Event.RefreshUI, TypeOfMessage.dontRequireReceiver );
 		if ( c.stat.hp <= 0 ) {
-			StageMan.In.GameOver();
+			c.OnDie();
+			//StageMan.In.GameOver();
 			return true;
 		}
 		return false;

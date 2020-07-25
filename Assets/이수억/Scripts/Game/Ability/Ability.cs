@@ -33,12 +33,12 @@ public enum AbilityKind
 	//TimerUp				= 1 << 20,			// 시간정지 시간 증가.				Data
 	Penetrate			= 1 << 21,			// 관통 샷							Data
 
-	//JumpUp				= 1 << 22,			// 점프력 증가.						Data
-	//DoubleJump			= 1 << 23,			// 이단 점프.						Data
+	//JumpUp			= 1 << 22,			// 점프력 증가.						Data
+	//DoubleJump		= 1 << 23,			// 이단 점프.						Data
 	//Dash				= 1 << 22,
 
 	Flame				= 1 << 24,			// 지나간 길에 불길					Data + Component
-	//IceShot				= 1 << 25,			// 얼음 샷.							Data
+	//IceShot			= 1 << 25,			// 얼음 샷.							Data
 
 	Healing_1			= 1 << 26,			// 초당 체력 1씩 상승					Data + Component
 	Healing_2			= 1 << 27,			// 초당 체력 1씩 상승					Data + Component
