@@ -8,18 +8,27 @@ namespace Projectile
 	{
 		public struct Data
 		{
+			public Character character;
 			public float damage;
+			public float angleZ;
+			public float speed;
 		}
 		public Data data;
+
+		public void Init(Data data )
+		{
+			this.data = data;
+		}
 
 		public virtual void Activate( Vector3 pos )
 		{
 			position = pos;
+			rotation = Quaternion.Euler( 0, 0, data.angleZ );
 		}
 
 		public virtual void DeActivate()
 		{
-
+			cTrf.rotation = Quaternion.identity;
 		}
 
 		public virtual void Process()

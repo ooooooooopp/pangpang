@@ -23,7 +23,7 @@ public abstract class PlayerController : MonoBehaviour
 
 //플레이어 스탯 있을예정인것.
 //공격력 공격속도 체력 이동속도
-public class Character : Actor
+public class Character : Actor, IDamagable
 {
 	public PlayerStat stat;
 	public AbilityController abilityCon;
@@ -32,6 +32,9 @@ public class Character : Actor
 
 	public void Init()
 	{
+		stat = new PlayerStat();
+		stat.Init();
+
 		abilityCon.Init(this);
 		bulletCon.Init(this);
 		moveCon.Init( this );
@@ -57,5 +60,16 @@ public class Character : Actor
 		if ( col.collider.tag == TagName.BALL ) {
 			StageMan.In.GameOver();
 		}
+	}
+
+	public bool TakeDamage( DamagableData data )
+	{
+		stat.hp -= data.damage;
+		//if( stat.hp <= 0 ) {
+		//	StageMan.In.GameOver();
+		//}
+
+
+		return true;
 	}
 }

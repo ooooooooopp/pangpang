@@ -4,7 +4,7 @@ public static class Constant
 {
 	public class Event
 	{
-		public const string SOME_EVENT = "SomeEvent";
+		public const string RefreshUI = "RefreshUI";
 	}
 
 

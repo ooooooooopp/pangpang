@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,11 +12,13 @@ public class StageMan : SingletonMonoD<StageMan>
 {
 	[HideInInspector]
 	public StageConstructor con;
+	public UIGameTest ui;
 
 	Coroutine startCo = null;
 
 	public GameObject pfPlayer;
-	Character player = null;
+	[HideInInspector]
+	public Character player = null;
 
 	public void Init( StageConstructor con )
 	{
@@ -23,6 +26,8 @@ public class StageMan : SingletonMonoD<StageMan>
 
 		if ( startCo != null ) startCo = null;
 		startCo = StartCoroutine( StartGameCo() );
+
+		ui.Init();
 	}
 
 	void Fin()

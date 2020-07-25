@@ -25,6 +25,7 @@ public class Game : MonoBehaviour
 	{
 		yield return null;
 
+
 		PoolFactory.In.Init();
 		StageMan.In.Init( con );
 	}

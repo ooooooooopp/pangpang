@@ -6,7 +6,6 @@ public class MovementController : PlayerController
 {
 	public Rigidbody2D rb;
 
-	public float moveSpeed = 4f;
 	private float moveDir = 0f;
 
 	public override void Process()
@@ -17,7 +16,7 @@ public class MovementController : PlayerController
 
 	void FixedUpdate()
 	{
-		rb.MovePosition( rb.position + new Vector2( moveDir * Time.fixedDeltaTime * moveSpeed, 0f ) );
+		rb.MovePosition( rb.position + new Vector2( moveDir * Time.fixedDeltaTime * c.stat.movSpd, 0f ) );
 	}
 
 }
