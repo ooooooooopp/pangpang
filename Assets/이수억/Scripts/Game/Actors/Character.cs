@@ -1,40 +1,62 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
+public abstract class PlayerController : MonoBehaviour
+{
+	[HideInInspector]
+	public Character c;
+
+	public virtual void Init(Character c )
+	{
+		this.c = c;
+	}
+
+	public virtual void Fin()
+	{
+
+	}
+
+	public virtual void Process()
+	{
+
+	}
+}
 
 //플레이어 스탯 있을예정인것.
 //공격력 공격속도 체력 이동속도
-
 public class Character : Actor
 {
-	public float moveSpeed = 4f;
-	private float moveDir = 0f;
-	public Rigidbody2D rb;
+
+	public PlayerStat stat;
+	public AbilityController abilityCon;
+	public BulletController bulletCon;
+	public MovementController moveCon;
+
+	public void Init()
+	{
+		abilityCon.Init(this);
+		bulletCon.Init(this);
+		moveCon.Init( this );
+	}
+
+	public void Fin()
+	{
+		abilityCon.Fin();
+		bulletCon.Fin();
+		moveCon.Fin();
+	}
 
 	void Update()
 	{
-		moveDir = Input.GetAxisRaw( "Horizontal" );
-		CheckFire();
+		abilityCon.Process();
+		bulletCon.Process();
+		moveCon.Process();
 	}
 
-	void CheckFire()
-	{
-		if ( Input.GetKeyDown( KeyCode.Space ) ) {
-			var bullet = PoolFactory.In.GenerateBullet( "Chain", StageMan.In.con.holder.bullets );
-			bullet.Activate( position );
-		}
-	}
-
-	void FixedUpdate()
-	{
-		rb.MovePosition( rb.position + new Vector2( moveDir * Time.fixedDeltaTime * moveSpeed, 0f ) );
-	}
 
 	void OnCollisionEnter2D( Collision2D col )
 	{
-		if ( col.collider.tag == "Ball" ) {
-			PoolMgr.In.Destory();
-			//Debug.Log( "GAME OVER!" );
-			SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex );
+		if ( col.collider.tag == TagName.BALL ) {
+			StageMan.In.GameOver();
 		}
 	}
 }
