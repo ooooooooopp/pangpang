@@ -71,4 +71,16 @@ public class SBall : Actor, IPoolObject, IDamagable
 
 		return ball;
 	}
+
+	public float power = 50f;
+	private void OnCollisionEnter2D( Collision2D col )
+	{
+		if ( col.gameObject.tag == TagName.PLAYER ) {
+			col.transform.GetComponent<IDamagable>().TakeDamage( new DamagableData() {
+				damage = power,
+				attacker = gameObject,
+			} );
+		}
+	}
+
 }

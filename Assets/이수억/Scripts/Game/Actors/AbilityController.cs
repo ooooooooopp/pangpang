@@ -1,10 +1,10 @@
 ﻿using DevelopeCommon;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AbilityController : PlayerController
 {
+    public AbilityHealing heal;
+
     public AbilityKind kinds;
 
     public void AddAbility(AbilityKind kind)
@@ -13,6 +13,9 @@ public class AbilityController : PlayerController
         c.stat.AddAbility( kind );
 
         Log.to.I( $"[Ability] Get - {kind}" );
+
+        if ( kind == AbilityKind.Healing_1 || kind == AbilityKind.Healing_2 || kind == AbilityKind.Healing_3 )
+            heal.Activate();
 
         Broadcaster.SendEvent( Constant.Event.RefreshUI, TypeOfMessage.dontRequireReceiver );
     }
@@ -33,9 +36,12 @@ public class AbilityController : PlayerController
     public override void Process()
     {
         base.Process();
+    }
 
-        if( Input.GetKey( KeyCode.LeftShift ) ) {
-            if( Input.GetKeyDown( KeyCode.Alpha1 ) ) {
+    void Cheat()
+    {
+        if ( Input.GetKey( KeyCode.LeftShift ) ) {
+            if ( Input.GetKeyDown( KeyCode.Alpha1 ) ) {
                 AddAbility( AbilityKind.Triple );
             }
 
@@ -44,5 +50,4 @@ public class AbilityController : PlayerController
             }
         }
     }
-
 }
