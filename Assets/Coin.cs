@@ -24,18 +24,11 @@ public class Coin : MonoBehaviour
     {
         if(collision.tag == "Wall")
         {
-            Debug.Log("걸림");
+         
             rb.simulated = false;
         }
 
-        if(StageManager.Inst.isClearRoom)
-        {
-            if (collision.tag == "Player")
-            {
-                //코인사운드;
-                this.gameObject.SetActive(false);
-            }
-        }
+
     }
 
     IEnumerator WaitClearRoomCoin()
@@ -45,7 +38,11 @@ public class Coin : MonoBehaviour
             yield return new WaitForSeconds(1f);
             while (StageManager.Inst.isClearRoom)
             {
-                transform.position = Vector3.Lerp(transform.position, player.transform.position, 0.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x, player.transform.position.y+0.5f, player.transform.position.z), 0.2f);
+                if (transform.position == new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z))
+                {
+                    this.gameObject.SetActive(false);
+                }
                 yield return null;
             }
         }

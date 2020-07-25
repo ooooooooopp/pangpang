@@ -35,6 +35,7 @@ public class PlayerStat
     public float healing;
 
     public bool isDivine;
+    public bool isDie => hp <= 0;
 
     public void Init(Character c)
     {
