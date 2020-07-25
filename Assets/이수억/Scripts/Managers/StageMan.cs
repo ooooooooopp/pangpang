@@ -14,7 +14,7 @@ public class StageMan : SingletonMonoD<StageMan>
 	public StageConstructor con;
 	public UIGameTest ui;
 
-	Coroutine startCo = null;
+	//Coroutine startCo = null;
 
 	public GameObject pfPlayer;
 	public Character player = null;

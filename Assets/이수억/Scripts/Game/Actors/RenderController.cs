@@ -1,5 +1,4 @@
-﻿using Sirenix.OdinInspector;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,9 +12,6 @@ public class RenderController : PlayerController
 
 	Coroutine playCo = null;
 
-	float term = 0.1f;
-
-
 	public override void Init( Character c )
 	{
 		base.Init( c );
@@ -23,11 +19,13 @@ public class RenderController : PlayerController
 		render.sprite = set.sprites[0];
 	}
 
-	public void PlayAnimation(PlayerState state, bool isLoop, Action onEnd = null)
+	public void PlayAnimation(PlayerState state, bool isLoop, Action onEnd = null, float term = 0.2f)
 	{
 		var set = spriteLib.GetSpriteSet( c.gender, state );
 
-		if ( playCo != null ) StopCoroutine( playCo );
+		if ( playCo != null ) {
+			StopCoroutine( playCo );
+		}
 
 		if( isLoop ) {
 			playCo = StartCoroutine( AnimationLoopCo( set.sprites, term ) );
@@ -35,6 +33,8 @@ public class RenderController : PlayerController
 			playCo = StartCoroutine( AnimationCo( set.sprites, term, onEnd ) );
 		}
 	}
+
+	//애니메이션이 종료가 안되었는데 stop 하면 ONComplete를 호출못함.
 
 	IEnumerator AnimationCo( Sprite[] sprites, float term, Action onEnd)
 	{
@@ -44,6 +44,7 @@ public class RenderController : PlayerController
 			render.sprite = sprites[index++];
 			if ( index >= sprites.Length ) {
 				onEnd?.Invoke();
+				playCo = null;
 				yield break;
 			}
 			yield return sec;
