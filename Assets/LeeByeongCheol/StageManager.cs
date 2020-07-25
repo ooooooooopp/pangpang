@@ -31,6 +31,9 @@ public class StageManager : MonoBehaviour
     public GameObject ability;
     public bool isSlotMachine = false;
     public bool isClearRoom = false;
+
+
+    public GameObject bgMgr;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,15 +57,17 @@ public class StageManager : MonoBehaviour
             switch (waveIndex) //삼지선다
             {
                 case 2:
-                    
+                    bgMgr.GetComponent<BackGroundMgr>().BGChange();
                     isSlotMachine = true;
                     ability.SetActive(true);
                     break;
                 case 5:
+                    bgMgr.GetComponent<BackGroundMgr>().BGChange();
                     isSlotMachine = true;
                     ability.SetActive(true);
                     break;
                 case 8:
+                    bgMgr.GetComponent<BackGroundMgr>().BGChange();
                     isSlotMachine = true;
                     ability.SetActive(true);
                     break;

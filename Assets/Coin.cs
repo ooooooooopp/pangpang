@@ -28,9 +28,10 @@ public class Coin : MonoBehaviour
             rb.simulated = false;
         }
 
-        if(StageManager.Inst.isClearRoom)
-        {
+      
             if (collision.tag == "Player")
+        {
+            if (StageManager.Inst.isClearRoom)
             {
                 //코인사운드;
                 this.gameObject.SetActive(false);
@@ -45,7 +46,7 @@ public class Coin : MonoBehaviour
             yield return new WaitForSeconds(1f);
             while (StageManager.Inst.isClearRoom)
             {
-                transform.position = Vector3.Lerp(transform.position, player.transform.position, 0.2f);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(player.transform.position.x, player.transform.position.y+0.5f, player.transform.position.z), 0.2f);
                 yield return null;
             }
         }
