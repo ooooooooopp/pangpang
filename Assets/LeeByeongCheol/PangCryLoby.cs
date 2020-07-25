@@ -17,12 +17,12 @@ public class PangCryLoby : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 isClick = true;
-                FadeInOut.Inst.FadeOut(2, "Play");
+                FadeInOut.Inst.FadeOut(2, "Choice");
             }
             else if (Input.GetMouseButton(0))
             {
                 isClick = true;
-                FadeInOut.Inst.FadeOut(2, "Play");
+                FadeInOut.Inst.FadeOut(2, "Choice");
             }
         }
 
