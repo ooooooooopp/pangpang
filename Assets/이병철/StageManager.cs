@@ -112,8 +112,8 @@ public class StageManager : MonoBehaviour
     private void WaveOpen()
     {
         stage[stageIndex].GetComponent<Wave>().wave[waveIndex].gameObject.SetActive(true);
-        //monsterFinalCount = stage[stageIndex].GetComponent<Wave>().monsterCount[waveIndex];
-        monsterFinalCount = 1;
+        monsterFinalCount = stage[stageIndex].GetComponent<Wave>().monsterCount[waveIndex];
+        //monsterFinalCount = 1;
 
         /*테스트 
          waveIndex = 2;
