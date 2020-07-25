@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
@@ -34,6 +35,14 @@ public class StageManager : MonoBehaviour
 
 
     public GameObject bgMgr;
+
+    public Text text;
+    public Text gold_text;
+
+    public int gold;
+
+    public GameObject Pause;
+    public bool isPause = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +52,14 @@ public class StageManager : MonoBehaviour
 
     }
 
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            
+            Pause.SetActive(!Pause.activeSelf);
+        }
+    }
 
     public void MonsterDie()
     {
@@ -99,7 +115,7 @@ public class StageManager : MonoBehaviour
 
         //씬 전환 시 정보 스테이지 정보 받아오고 진행 필요
         //stageIndex = ;
-
+       
         stageIndex = 0; //임시
         switch (stageIndex)
         {
@@ -123,6 +139,8 @@ public class StageManager : MonoBehaviour
         stage[stageIndex].GetComponent<Wave>().wave[waveIndex].gameObject.SetActive(true);
         monsterFinalCount = stage[stageIndex].GetComponent<Wave>().monsterCount[waveIndex];
         monsterCount = 0;
+        text.text = "STAGE 1-" + (waveIndex+1);
+        gold_text.text = "" + gold;
         //monsterFinalCount = 1;
 
         /*테스트 
@@ -163,5 +181,10 @@ public class StageManager : MonoBehaviour
 
     }
 
+    public void goldText()
+    {
+        gold++;
+        gold_text.text = "" + gold;
+    }
 
 }
