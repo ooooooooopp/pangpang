@@ -42,6 +42,7 @@ public class StageManager : MonoBehaviour
     public int gold;
 
     public GameObject Pause;
+    public bool isPause = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +54,11 @@ public class StageManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            
+            Pause.SetActive(!Pause.activeSelf);
+        }
     }
 
     public void MonsterDie()
