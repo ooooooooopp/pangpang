@@ -48,6 +48,7 @@ public enum AbilityKind
 
 public class Ability : MonoBehaviour
 {
+	[HideInInspector]
 	public Character c;
 
 	public virtual void Init(Character c)
