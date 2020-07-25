@@ -1,4 +1,5 @@
 using DevelopeCommon;
+using System;
 using UnityEngine;
 
 public abstract class PlayerController : MonoBehaviour
@@ -52,6 +53,7 @@ public class Character : Actor
 		dmgChecker.Init( this );
 	}
 
+
 	public void Fin()
 	{
 		abilityCon.Fin();
@@ -68,4 +70,14 @@ public class Character : Actor
 		hud.Process();
 	}
 
+	public void OnDie()
+	{
+		Fin();
+		Destroy( gameObject );
+	}
+
+	public void ToggleDivine( bool isOn )
+	{
+		stat.isDivine = isOn;
+	}
 }
