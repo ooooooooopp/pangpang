@@ -4,8 +4,15 @@ using UnityEngine;
 public class AbilityController : PlayerController
 {
     public AbilityHealing heal;
-
+    public AbilityOrbit orbit;
     public AbilityKind kinds;
+
+    public override void Init( Character c )
+    {
+        base.Init( c );
+        heal.Init( c );
+        orbit.Init( c );
+    }
 
     public void AddAbility(AbilityKind kind)
     {
@@ -16,6 +23,10 @@ public class AbilityController : PlayerController
 
         if ( kind == AbilityKind.Healing_1 || kind == AbilityKind.Healing_2 || kind == AbilityKind.Healing_3 )
             heal.Activate();
+
+        if( kind == AbilityKind.AroundBall ) {
+            orbit.Activate();
+        }
 
         Broadcaster.SendEvent( Constant.Event.RefreshUI, TypeOfMessage.dontRequireReceiver );
     }

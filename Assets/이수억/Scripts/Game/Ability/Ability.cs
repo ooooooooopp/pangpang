@@ -47,7 +47,12 @@ public enum AbilityKind
 
 public class Ability : MonoBehaviour
 {
+	public Character c;
 
+	public virtual void Init(Character c)
+	{
+		this.c = c;
+	}
 
 
 }

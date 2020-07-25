@@ -9,12 +9,18 @@ namespace Projectile
 		void OnTriggerEnter2D( Collider2D col )
 		{
 			if ( col.tag == TagName.BALL ) {
-				col.GetComponent<IDamagable>().TakeDamage(new DamagableData() {
+				col.GetComponent<IDamagable>().TakeDamage( new DamagableData() {
 					attacker = bullet.cGameObj,
 					damage = bullet.data.damage,
 				} );
+
+				if( bullet.data.isPenetrate == false ) {
+					bullet.Recycle();
+				}
+			} else if ( col.tag == TagName.WALL ) {
+				bullet.Recycle();
 			}
-			bullet.Recycle();
 		}
 	}
 }
+

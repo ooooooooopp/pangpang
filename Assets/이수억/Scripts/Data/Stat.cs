@@ -20,13 +20,15 @@ public enum StatKind
 
 public class PlayerStat
 {
+    public Character c;
+
     public float atk;
     public float hp;
     public float maxHp;
     public float movSpd;
     
     public float bulletSpd;
-    public int bulletCount;
+    public int bulletCount => c.bulletCon.shots.Count;
     public int maxBulletCount;
 
     public float divTime;
@@ -35,8 +37,10 @@ public class PlayerStat
 
     public float healing;
 
-    public void Init()
+    public void Init(Character c)
     {
+        this.c = c;
+
         atk = 100;
         maxHp = 100;
         hp = maxHp;
@@ -44,7 +48,6 @@ public class PlayerStat
 
         bulletSpd = 2f;
         maxBulletCount = 1;
-        bulletCount = maxBulletCount;
 
         divTime = 5f;
         stopTime = 5f;

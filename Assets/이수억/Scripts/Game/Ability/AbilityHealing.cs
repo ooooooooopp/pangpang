@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class AbilityHealing : Ability
 {
-	public Character c;
 	public bool isOn = false;
 
 	public void Activate()
@@ -26,6 +25,6 @@ public class AbilityHealing : Ability
 			return;
 
 		c.stat.Heal( c.stat.healing );
-		Broadcaster.SendEvent( Constant.Event.RefreshUI, TypeOfMessage.dontRequireReceiver );
+		//Broadcaster.SendEvent( Constant.Event.RefreshUI, TypeOfMessage.dontRequireReceiver );
 	}
 }

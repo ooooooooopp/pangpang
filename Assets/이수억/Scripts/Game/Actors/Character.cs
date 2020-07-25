@@ -24,24 +24,27 @@ public abstract class PlayerController : MonoBehaviour
 
 //플레이어 스탯 있을예정인것.
 //공격력 공격속도 체력 이동속도
-public class Character : Actor, IDamagable
+public class Character : Actor
 {
 	public PlayerStat stat;
 	public AbilityController abilityCon;
 	public BulletController bulletCon;
 	public MovementController moveCon;
 
+	public PlayerDamageChecker dmgChecker;
+
 	public HudController hud;
 
 	public void Init()
 	{
 		stat = new PlayerStat();
-		stat.Init();
 
+		stat.Init(this);
 		abilityCon.Init(this);
 		bulletCon.Init(this);
 		moveCon.Init( this );
 		hud.Init( this );
+		dmgChecker.Init( this );
 	}
 
 	public void Fin()
@@ -60,15 +63,4 @@ public class Character : Actor, IDamagable
 		hud.Process();
 	}
 
-	//피격받았다면 data 에 의한처리를 한다.	
-	public bool TakeDamage( DamagableData data )
-	{
-		stat.hp -= data.damage;
-		Broadcaster.SendEvent( Constant.Event.RefreshUI, TypeOfMessage.dontRequireReceiver );
-		if( stat.hp <= 0 ) {
-			StageMan.In.GameOver();
-			return true;
-		}
-		return false;
-	}
 }

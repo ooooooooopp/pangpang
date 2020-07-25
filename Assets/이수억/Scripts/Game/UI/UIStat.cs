@@ -14,21 +14,16 @@ namespace UI
 		public StatKind kind;
 		Character c;
 
-		private void OnEnable()
-		{
-			Broadcaster.EnableListener( Constant.Event.RefreshUI, Refresh );
-		}
-
-		private void OnDisable()
-		{
-			Broadcaster.DisableListener( Constant.Event.RefreshUI, Refresh );
-		}
-
 		public void Init( StatKind kind, Character c )
 		{
 			this.kind = kind;
 			this.c = c;
 
+			Refresh();
+		}
+
+		private void Update()
+		{
 			Refresh();
 		}
 

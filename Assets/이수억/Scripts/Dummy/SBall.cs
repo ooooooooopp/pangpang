@@ -9,6 +9,11 @@ public class SBall : Actor, IPoolObject, IDamagable
 
 	public Rigidbody2D rb;
 
+	public float power = 50f;
+	public float hp = 100f;
+
+
+
 	public void Activate(Vector3 pos)
 	{
 		cTrf.localScale = Vector3.one * scale;
@@ -46,7 +51,10 @@ public class SBall : Actor, IPoolObject, IDamagable
 	public bool TakeDamage( DamagableData data )
 	{
 		//데미지량이 넘어서면 리사이클로 나중에 변경.
-		Recycle();
+		hp -= data.damage;
+		if( hp <= 0 ) {
+			Recycle();
+		}
 
 		if ( nextBall != null ) {
 			Gen( nextBall.name, rb.position + Vector2.right / 4f, new Vector2( 2f, 5f ) );
@@ -72,11 +80,20 @@ public class SBall : Actor, IPoolObject, IDamagable
 		return ball;
 	}
 
-	public float power = 50f;
-	private void OnCollisionEnter2D( Collision2D col )
+	//private void OnCollisionEnter2D( Collision2D col )
+	//{
+	//	if ( col.gameObject.tag == TagName.PLAYER ) {
+	//		col.transform.GetComponent<IDamagable>().TakeDamage( new DamagableData() {
+	//			damage = power,
+	//			attacker = gameObject,
+	//		} );
+	//	}
+	//}
+
+	private void OnTriggerEnter2D( Collider2D col )
 	{
-		if ( col.gameObject.tag == TagName.PLAYER ) {
-			col.transform.GetComponent<IDamagable>().TakeDamage( new DamagableData() {
+		if ( col.tag == TagName.PLAYER ) {
+			col.GetComponent<IDamagable>().TakeDamage( new DamagableData() {
 				damage = power,
 				attacker = gameObject,
 			} );
