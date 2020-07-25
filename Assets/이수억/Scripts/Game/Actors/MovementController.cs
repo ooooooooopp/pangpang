@@ -102,7 +102,7 @@ public class MovementController : PlayerController
 
 	public void Transition(PlayerState targetState, bool forceChange = false )
 	{
-		Log.Check.I( $"[Transition] Try {targetState}" );
+		//Log.Check.I( $"[Transition] Try {targetState}" );
 
 		if ( targetState == state.CurrentState && forceChange == false)
 			return;
@@ -170,7 +170,7 @@ public class MovementController : PlayerController
 				break;
 		}
 
-		Log.Check.I( $"[Transition] - Success {targetState}" );
+		//Log.Check.I( $"[Transition] - Success {targetState}" );
 		state.ChangeState( targetState );
 	}
 
