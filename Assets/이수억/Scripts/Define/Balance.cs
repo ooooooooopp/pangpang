@@ -8,8 +8,8 @@
     public const int BULLET_COUNT = 1;
 
     public const float DIVINE_TIME = 5f;        //무적시간
-    public const float STOP_TIME = 5f;          //정지시간
-    public const float JUMP_POWER = 100f;       //점프 힘
+    //public const float STOP_TIME = 5f;          //정지시간
+    //public const float JUMP_POWER = 100f;       //점프 힘
 
     //어빌리티로 증가하는 수치 량.
     //단계가 있는 능력들은 중첩됩니다.
@@ -19,7 +19,7 @@
     public const int BULLET_BONUS_3 = 1;
 
     public const float DIVINE_TIME_INC = 5f;            //무적시간증가.
-    public const float TIME_INC = 5f;
+    //public const float TIME_INC = 5f;
 
     public const float BULLET_SPD_1 = 2f;                 //총알 속도증가.
     public const float BULLET_SPD_2 = 2f;                 //총알 속도증가.
@@ -43,5 +43,5 @@
 
     public const float HEALING_TERM = 1f;               //힐이 들어가는 간격
 
-    public const float JUMP_POWER_UP = 10f;
+    //public const float JUMP_POWER_UP = 10f;
 }

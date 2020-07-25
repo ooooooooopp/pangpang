@@ -32,9 +32,6 @@ public class PlayerStat
     public int maxBulletCount;
 
     public float divTime;
-    public float stopTime;
-    public float jumpPower;
-
     public float healing;
 
     public void Init(Character c)
@@ -50,8 +47,8 @@ public class PlayerStat
         maxBulletCount = Balance.BULLET_COUNT;
 
         divTime = Balance.DIVINE_TIME;
-        stopTime = Balance.STOP_TIME;
-        jumpPower = Balance.JUMP_POWER;
+        //stopTime = Balance.STOP_TIME;
+        //jumpPower = Balance.JUMP_POWER;
         healing = 0f;
     }
 
@@ -122,19 +119,11 @@ public class PlayerStat
                 break;
             case AbilityKind.AroundBall:
                 break;
-            case AbilityKind.TimerUp:
-                stopTime = Balance.TIME_INC;
-                break;
             case AbilityKind.Penetrate:
                 break;
-            case AbilityKind.JumpUp:
-                jumpPower += Balance.JUMP_POWER_UP;
-                break;        
-            case AbilityKind.DoubleJump:
+            case AbilityKind.Dash:
                 break;
             case AbilityKind.Flame:
-                break;
-            case AbilityKind.IceShot:
                 break;
             case AbilityKind.Healing_1:
                 healing += Balance.HEALING_INC_1;

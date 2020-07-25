@@ -56,12 +56,6 @@ namespace UI
 				case StatKind.divTime:
 					value.text = c.stat.divTime.ToString();
 					break;
-				case StatKind.stopTime:
-					value.text = c.stat.stopTime.ToString();
-					break;
-				case StatKind.jumpPower:
-					value.text = c.stat.jumpPower.ToString();
-					break;
 				case StatKind.healing:
 					value.text = c.stat.healing.ToString();
 					break;
