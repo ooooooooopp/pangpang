@@ -23,6 +23,11 @@ public class Ball : MonoBehaviour {
 			ball1.GetComponent<Ball>().startForce = new Vector2(2f, 5f);
 			ball2.GetComponent<Ball>().startForce = new Vector2(-2f, 5f);
 		}
+        else 
+		{
+			StageManager.Inst.MonsterDie();
+		
+		}
 
 		Destroy(gameObject);
 	}
