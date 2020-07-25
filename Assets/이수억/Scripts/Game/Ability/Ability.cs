@@ -7,9 +7,9 @@ public enum AbilityKind
 	Double				= 1 << 1,			// 위로 두개가 쌍으로 나감.			Data
 	Triple				= 1 << 2,			// 3갈래 탄이됨						Data
 
-	BulletBonus_1		= 1 << 3,			// 장탄수 증가.				Data
-	BulletBonus_2		= 1 << 4,			// 장탄수 증가.				Data
-	BulletBonus_3		= 1 << 5,			// 장탄수 증가.				Data
+	BulletBonus_1		= 1 << 3,			// 장탄수 증가.						Data
+	BulletBonus_2		= 1 << 4,			// 장탄수 증가.						Data
+	BulletBonus_3		= 1 << 5,			// 장탄수 증가.						Data
 
 	Divine				= 1 << 6,			// 무적시간 증가.						Data
 	
