@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class PoolMgr : SingletonMono<PoolMgr>
 {
 	public const string POOL_BULLET = "Pool_Bullet_Group";
+	public const string POOL_MONSTER = "Pool_Monster_Group";
 
 	Dictionary<string, GameObjectPool> _pools = new Dictionary<string, GameObjectPool>();
 

@@ -6,6 +6,12 @@ namespace Projectile
 {
 	public class Bullet : Actor, IPoolObject
 	{
+		public struct Data
+		{
+			public float damage;
+		}
+		public Data data;
+
 		public virtual void Activate( Vector3 pos )
 		{
 			position = pos;

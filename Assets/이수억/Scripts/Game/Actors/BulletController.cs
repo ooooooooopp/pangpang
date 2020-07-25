@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class BulletController : PlayerController
 {
-
 	public override void Process()
 	{
 		base.Process();
+
 		CheckFire();
 	}
 
+
+
 	void CheckFire()
 	{
-		if ( Input.GetKeyDown( KeyCode.Space ) ) {
-			var bullet = PoolFactory.In.GenerateBullet( "Chain", StageMan.In.con.holder.bullets );
+		if ( Input.GetKeyDown( KeyCode.Space ) ) 
+		{
+			var bullet = PoolFactory.In.GenerateBullet( "Chain", StageMan.In.con.holder.bulletHolder );
 			bullet.Activate( c.position );
 		}
+
+
 	}
+
+	
+
+
 
 
 }

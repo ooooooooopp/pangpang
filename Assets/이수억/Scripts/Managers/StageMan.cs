@@ -12,17 +12,54 @@ public class StageMan : SingletonMonoD<StageMan>
 	[HideInInspector]
 	public StageConstructor con;
 
+	Coroutine startCo = null;
+
+	public GameObject pfPlayer;
+	Character player = null;
+
 	public void Init( StageConstructor con )
 	{
 		this.con = con;
+
+		if ( startCo != null ) startCo = null;
+		startCo = StartCoroutine( StartGameCo() );
 	}
 
 	void Fin()
 	{
+		player.Fin();
+		Destroy( player.gameObject );
+
 		con.Fin();
 		PoolMgr.In.Destory();
-		//GameMan.ChangeScene( GameScene.Lobby );
 	}
+
+	IEnumerator StartGameCo()
+	{
+		GeneratePlayer();
+		GenerateBall();
+
+		yield return null;
+	}
+
+	public void MonsterDie()
+	{
+		//monster death count 체크.
+	}
+
+	public void GeneratePlayer()
+	{
+		player = Instantiate( pfPlayer, con.holder.playerHolder ).GetComponent<Character>();
+		player.position = con.holder.playerSpawnHolder.position;
+		player.Init();
+	}
+
+	public void GenerateBall()
+	{
+		SBall.Gen( "Ball_5", con.holder.monsterSpawnHolder.position, new Vector2( 2f, 0f ) );
+	}
+
+
 
 	public void GameOver()
 	{

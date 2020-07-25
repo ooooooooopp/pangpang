@@ -25,7 +25,6 @@ public abstract class PlayerController : MonoBehaviour
 //공격력 공격속도 체력 이동속도
 public class Character : Actor
 {
-
 	public PlayerStat stat;
 	public AbilityController abilityCon;
 	public BulletController bulletCon;
