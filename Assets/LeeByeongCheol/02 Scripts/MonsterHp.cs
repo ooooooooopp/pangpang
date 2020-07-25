@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MonsterHp : MonoBehaviour
+public class MonsterHp : MonoBehaviour , IDamagable
 {
     // Start is called before the first frame update
 
@@ -18,6 +18,8 @@ public class MonsterHp : MonoBehaviour
     public GameObject nextBall;
 
     public Rigidbody2D rb;
+
+    public float damagePower;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,7 +28,7 @@ public class MonsterHp : MonoBehaviour
         
     }
 
-
+    /*
     public void Damage(float _power)
     {
 
@@ -37,6 +39,7 @@ public class MonsterHp : MonoBehaviour
             MonsterDie();
         }
     }
+    */
 
     private void MonsterDie()
     {
@@ -58,5 +61,33 @@ public class MonsterHp : MonoBehaviour
         this.gameObject.SetActive(false);
 
     }
+
+
+    public bool TakeDamage(DamagableData data)
+    {
+        currHp -= data.damage;
+
+        hpBar.fillAmount = (currHp / initHp);
+        if (currHp <= 0.0f)
+        {
+            MonsterDie();
+            return true;
+        }
+        return false;
+    }
+
+    public float power = 50f;
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == TagName.PLAYER)
+        {
+            col.transform.GetComponent<IDamagable>().TakeDamage(new DamagableData()
+            {
+                damage = power,
+                attacker = gameObject,
+            });
+        }
+    }
+
 
 }
