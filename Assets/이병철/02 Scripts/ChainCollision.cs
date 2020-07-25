@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ChainCollision : MonoBehaviour {
 
-	float power = 50.0f;
+	float power = 100.0f;
 	void OnTriggerEnter2D (Collider2D col)
 	{
 
