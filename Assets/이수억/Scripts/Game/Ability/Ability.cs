@@ -35,7 +35,7 @@ public enum AbilityKind
 
 	//JumpUp				= 1 << 22,			// 점프력 증가.						Data
 	//DoubleJump			= 1 << 23,			// 이단 점프.						Data
-	Dash				= 1 << 22,
+	//Dash				= 1 << 22,
 
 	Flame				= 1 << 24,			// 지나간 길에 불길					Data + Component
 	//IceShot				= 1 << 25,			// 얼음 샷.							Data

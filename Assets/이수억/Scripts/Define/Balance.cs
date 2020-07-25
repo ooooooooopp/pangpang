@@ -7,7 +7,10 @@
     public const float BULLET_SPD = 2f;
     public const int BULLET_COUNT = 1;
 
-    public const float DIVINE_TIME = 5f;        //무적시간
+    public const float DIVINE_TIME = 2f;            //무적이 지속되는 시간, 무적이 걸리는건 랜덤합니다. (1f ~ 5f)
+    public const float DIVINE_TERM_MIN = 1f;
+    public const float DIVINE_TERM_MAX = 5f;
+
     //public const float STOP_TIME = 5f;          //정지시간
     //public const float JUMP_POWER = 100f;       //점프 힘
 
@@ -17,9 +20,6 @@
     public const int BULLET_BONUS_1 = 1;                //장탄수 증가.
     public const int BULLET_BONUS_2 = 1;
     public const int BULLET_BONUS_3 = 1;
-
-    public const float DIVINE_TIME_INC = 5f;            //무적시간증가.
-    //public const float TIME_INC = 5f;
 
     public const float BULLET_SPD_1 = 2f;                 //총알 속도증가.
     public const float BULLET_SPD_2 = 2f;                 //총알 속도증가.

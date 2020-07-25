@@ -34,6 +34,8 @@ public class PlayerStat
     public float divTime;
     public float healing;
 
+    public bool isDivine;
+
     public void Init(Character c)
     {
         this.c = c;
@@ -50,6 +52,8 @@ public class PlayerStat
         //stopTime = Balance.STOP_TIME;
         //jumpPower = Balance.JUMP_POWER;
         healing = 0f;
+
+        isDivine = false;
     }
 
     public void Heal(float adder )
@@ -79,7 +83,6 @@ public class PlayerStat
                 maxBulletCount += Balance.BULLET_BONUS_3;
                 break;
             case AbilityKind.Divine:
-                divTime += Balance.DIVINE_TIME_INC;
                 break;
             case AbilityKind.BulletSpdUp_1:
                 bulletSpd += Balance.BULLET_SPD_1;
@@ -120,8 +123,6 @@ public class PlayerStat
             case AbilityKind.AroundBall:
                 break;
             case AbilityKind.Penetrate:
-                break;
-            case AbilityKind.Dash:
                 break;
             case AbilityKind.Flame:
                 break;
