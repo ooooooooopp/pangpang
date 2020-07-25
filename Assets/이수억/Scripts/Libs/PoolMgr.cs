@@ -6,6 +6,7 @@ public class PoolMgr : SingletonMono<PoolMgr>
 	public const string POOL_BULLET = "Pool_Bullet_Group";
 	public const string POOL_MONSTER = "Pool_Monster_Group";
 	public const string POOL_SKILL = "Pool_Skill_Group";
+	public const string POOL_FX = "Pool_FxGroup";
 
 	Dictionary<string, GameObjectPool> _pools = new Dictionary<string, GameObjectPool>();
 
