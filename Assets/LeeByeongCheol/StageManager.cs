@@ -130,7 +130,7 @@ public class StageManager : MonoBehaviour
         monsterFinalCount = stage[stageIndex].GetComponent<Wave>().monsterCount[waveIndex];
         monsterCount = 0;
         text.text = "STAGE 1-" + (waveIndex+1);
-        gold_text.text = ""+gold;
+        gold_text.text = "" + gold;
         //monsterFinalCount = 1;
 
         /*테스트 
@@ -171,5 +171,10 @@ public class StageManager : MonoBehaviour
 
     }
 
+    public void goldText()
+    {
+        gold++;
+        gold_text.text = "" + gold;
+    }
 
 }
