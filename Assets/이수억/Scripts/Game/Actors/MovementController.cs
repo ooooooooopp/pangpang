@@ -24,7 +24,7 @@ public class MovementController : PlayerController
 
 	private float moveDir = 0f;
 
-	private const float DOUBLE_CLICK_TIME = 1f;
+	private const float DOUBLE_CLICK_TIME = .5f;
 	private float lastClickTime;
 	
 	float beforeDir;
