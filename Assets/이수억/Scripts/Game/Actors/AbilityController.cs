@@ -40,6 +40,8 @@ public class AbilityController : PlayerController
         if( kind == AbilityKind.Flame ) {
             flame.Activate();
         }
+
+        AudioController.Play( "AbilitySelect" );
     }
 
     public bool HasAbility(AbilityKind kind )

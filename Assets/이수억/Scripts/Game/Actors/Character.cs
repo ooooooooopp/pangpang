@@ -91,7 +91,9 @@ public class Character : Actor
 	public void OnDie()
 	{
 		Fin();
+		AudioController.Play( "GameOver" );
 		Destroy( gameObject );
+		StageManager.Inst.GameOver();
 	}
 
 	public void ToggleDivine( bool isOn )

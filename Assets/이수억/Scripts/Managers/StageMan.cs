@@ -27,6 +27,7 @@ public class StageMan : SingletonMonoD<StageMan>
 		//startCo = StartCoroutine( StartGameCo() );
 
 		ui.Init();
+
 	}
 
 	void Fin()

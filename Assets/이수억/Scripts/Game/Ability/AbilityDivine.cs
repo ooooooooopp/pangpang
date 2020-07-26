@@ -48,6 +48,7 @@ public class AbilityDivine : Ability
 	{
 		if ( c == null )
 			return;
+		AudioController.Play( "DivineOn" );
 
 		divineRender.enabled = true;
 		c.ToggleDivine( true );
