@@ -70,6 +70,7 @@ public class ChoiceMgr : MonoBehaviour
         GameManager._inst.isGirlChoice = true;
 
         FadeInOut.Inst.FadeOut(2, "Play");
+        AudioController.Play( "AbilitySelect" );
     }
     public void butt2()
     {
@@ -83,6 +84,8 @@ public class ChoiceMgr : MonoBehaviour
     {
         GameManager._inst.isGirlChoice = false;
         FadeInOut.Inst.FadeOut(2, "Play");
+        AudioController.Play( "AbilitySelect" );
+
     }
     public void butt4()
     {

@@ -8,6 +8,10 @@ public class PangCryLoby : MonoBehaviour
 
     private bool isClick = false;
 
+    private void Start()
+    {
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -18,11 +22,13 @@ public class PangCryLoby : MonoBehaviour
             {
                 isClick = true;
                 FadeInOut.Inst.FadeOut(2, "Choice");
+                AudioController.PlayMusic( "LobbySelect" );
             }
             else if (Input.GetMouseButton(0))
             {
                 isClick = true;
                 FadeInOut.Inst.FadeOut(2, "Choice");
+                AudioController.PlayMusic( "LobbySelect" );
             }
         }
 

@@ -67,6 +67,8 @@ public class StageManager : MonoBehaviour
 
         if (monsterCount >= monsterFinalCount)
         {
+            AudioController.Play( "GameClear" );
+
             //동전획득 후 진행
             isClearRoom = true;
             isSlotMachine = true;
@@ -185,6 +187,12 @@ public class StageManager : MonoBehaviour
     {
         gold++;
         gold_text.text = "" + gold;
+    }
+
+    public void GameOver()
+    {
+        FadeInOut.Inst.FadeOut( 2f, "Lobby" );
+        AudioController.Play( "GameOver" );
     }
 
 }

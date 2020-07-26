@@ -102,7 +102,7 @@ public class BulletController : PlayerController
 			Shoot( 0f, shot );
 		}
 		shots.Add( shot );
-
+		AudioController.Play( "PlayerShot" );
 	}
 
 	Coroutine fireCo = null;

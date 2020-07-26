@@ -14,21 +14,12 @@ public class Coin : MonoBehaviour
         StartCoroutine(WaitClearRoomCoin());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Wall")
         {
-         
             rb.simulated = false;
         }
-
-
     }
 
     IEnumerator WaitClearRoomCoin()
@@ -43,6 +34,7 @@ public class Coin : MonoBehaviour
                 {
                     StageManager.Inst.goldText();
                     this.gameObject.SetActive(false);
+                    AudioController.Play( "GetCoin" );
                 }
                 yield return null;
             }

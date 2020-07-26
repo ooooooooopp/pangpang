@@ -27,12 +27,16 @@ public class PlayerDamageChecker : MonoBehaviour, IDamagable
 		if ( c.stat.isDie )
 			return false;
 
+		AudioController.Play( "PlayerHit" );
+
 		c.stat.hp -= data.damage;
 		if ( c.stat.hp <= 0 ) {
+			AudioController.Play( "PlayerDie" );
 			c.moveCon.Transition( PlayerState.die, true );
 			//StageMan.In.GameOver();
 			return true;
 		} else {
+
 			c.moveCon.Transition( PlayerState.hit, false );
 		}
 		return false;
