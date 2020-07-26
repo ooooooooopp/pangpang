@@ -47,6 +47,7 @@ public class ChoiceMgr : MonoBehaviour
             }
         }
 
+        /*
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             if(isGirl)
@@ -61,6 +62,7 @@ public class ChoiceMgr : MonoBehaviour
                 FadeInOut.Inst.FadeOut(2, "Play");
             }
         }
+        */
 
     }
 
