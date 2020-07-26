@@ -34,19 +34,21 @@ public class timeS : MonoBehaviour
             isCousor = false;
             Cousor1.SetActive(true);
             Cousor2.SetActive(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+            AudioController.Play( "Ping" );
+
+        } else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             isCousor = true;
             Cousor1.SetActive(false);
             Cousor2.SetActive(true);
+            AudioController.Play( "Ping" );
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             if(!isCousor)
             {
+                AudioController.Play( "Ping" );
                 this.gameObject.SetActive(false);
-
             }
             else
             {
