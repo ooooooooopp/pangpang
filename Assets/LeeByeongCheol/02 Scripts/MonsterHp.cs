@@ -12,6 +12,7 @@ public class MonsterHp : MonoBehaviour , IDamagable
 
     public Image hpBar;
 
+    Coroutine hitCo = null;
 
     public Vector2 startForce;
 
@@ -49,39 +50,44 @@ public class MonsterHp : MonoBehaviour , IDamagable
 
     private void MonsterDie()
     {
+        if (nextBall != null)
+        {
+            GameObject ball1 = Instantiate(nextBall, rb.position + Vector2.right / 4f, Quaternion.identity);
+            GameObject ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4f, Quaternion.identity);
 
-            if (nextBall != null)
-            {
-                GameObject ball1 = Instantiate(nextBall, rb.position + Vector2.right / 4f, Quaternion.identity);
-                GameObject ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4f, Quaternion.identity);
-
-                ball1.GetComponent<MonsterHp>().startForce = new Vector2(2f, 5f);
-                ball2.GetComponent<MonsterHp>().startForce = new Vector2(-2f, 5f);
-            }
-            else
-            {
-                StageManager.Inst.MonsterDie();
-
-            }
-        
+            ball1.GetComponent<MonsterHp>().startForce = new Vector2(2f, 5f);
+            ball2.GetComponent<MonsterHp>().startForce = new Vector2(-2f, 5f);
+        }
+        else
+        {
+            StageManager.Inst.MonsterDie();
+        }
         this.gameObject.SetActive(false);
-
     }
 
 
     public bool TakeDamage(DamagableData data)
     {
-        if(!this.gameObject.activeSelf)
-        {
+        if ( !gameObject.activeInHierarchy )
             return false;
-        }
+
+        if ( currHp <= 0f )
+            return false;
+
+        //if(!this.gameObject.activeSelf)
+        //{
+        //    return false;
+        //}
         currHp -= data.damage;
 
         hpBar.fillAmount = (currHp / initHp);
-        StartCoroutine(InBeatTime());
-        if (currHp <= 0.0f)
+
+        if ( hitCo != null ) StopCoroutine( hitCo );
+        hitCo = StartCoroutine( InBeatTime() );
+
+        if (currHp <= 0f)
         {
-            CoinDrop();
+            //CoinDrop();
             MonsterDie();
             return true;
         }

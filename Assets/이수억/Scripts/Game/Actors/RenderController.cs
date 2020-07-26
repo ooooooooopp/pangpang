@@ -83,6 +83,14 @@ public class RenderController : PlayerController
 		render.sprite = sprites[0];
 	}
 
+	private void Start()
+	{
+		if( c != null ) {
+			var sprites = GetSprite( c.gender, PlayerState.idle );
+			render.sprite = sprites[0];
+		}
+	}
+
 	public void PlayAnimation(PlayerState state, bool isLoop, Action onEnd = null, float term = 0.2f)
 	{
 		var set = GetSprite( c.gender, state );

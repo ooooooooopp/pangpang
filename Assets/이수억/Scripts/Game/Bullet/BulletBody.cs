@@ -13,6 +13,13 @@ namespace Projectile
 				if ( dmgable == null )
 					return;
 
+				var monster = col.GetComponent<MonsterHp>();
+				if ( monster == null )
+					return;
+
+				if ( monster.currHp <= 0f )
+					return;
+
 				dmgable.TakeDamage( new DamagableData() {
 					attacker = bullet.cGameObj,
 					damage = bullet.data.damage,
