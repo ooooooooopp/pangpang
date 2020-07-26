@@ -60,6 +60,8 @@ public class AbilityController : PlayerController
     public override void Process()
     {
         base.Process();
+        
+        Cheat();
     }
 
     void Cheat()
@@ -72,6 +74,30 @@ public class AbilityController : PlayerController
             if ( Input.GetKeyDown( KeyCode.Alpha2 ) ) {
                 AddAbility( AbilityKind.Double );
             }
+            if ( Input.GetKeyDown( KeyCode.Alpha3 ) ) {
+                AddAbility( AbilityKind.BulletBonus_3 );
+            }
+            if ( Input.GetKeyDown( KeyCode.Alpha4 ) ) {
+                AddAbility( AbilityKind.AroundBall );
+            }
+            if ( Input.GetKeyDown( KeyCode.Alpha5 ) ) {
+                AddAbility( AbilityKind.Flame );
+            }
+
+            if ( Input.GetKeyDown( KeyCode.L ) ) {
+                AddAllAbility();
+            }
+        }
+    }
+
+    void AddAllAbility()
+    {
+        var abilites = System.Enum.GetValues( typeof( AbilityKind ) );
+        foreach ( var item in abilites ) {
+            AbilityKind abil = (AbilityKind)item;
+            if ( abil == AbilityKind.None )
+                continue;
+            AddAbility( abil );
         }
     }
 }
