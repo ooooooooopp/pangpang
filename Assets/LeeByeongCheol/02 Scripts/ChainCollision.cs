@@ -10,11 +10,13 @@ public class ChainCollision : MonoBehaviour
 		Chain.IsFired = false;
 		if (col.tag == TagName.BALL)
 		{
-			col.GetComponent<IDamagable>().TakeDamage(new DamagableData()
-			{
-				attacker = gameObject,
-				damage = power,
-			});
+			var dmg = col.GetComponent<IDamagable>();
+			if ( dmg != null ) {
+				dmg.TakeDamage( new DamagableData() {
+					attacker = gameObject,
+					damage = power,
+				} );
+			}
 		}
 
 	}

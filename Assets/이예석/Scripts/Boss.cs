@@ -63,6 +63,10 @@ public class Boss : MonoBehaviour,IDamagable
 
     public bool TakeDamage(DamagableData data)
     {
+        if ( !gameObject.activeInHierarchy )
+            return false;
+        if ( curHp <= 0 )
+            return false;
 
         curHp -= data.damage;
 

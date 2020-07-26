@@ -45,6 +45,12 @@ public class BulletController : PlayerController
 	{
 		base.Init( c );
 
+		foreach ( var s in shots ) {
+			foreach ( var b in s.bullets ) {
+				b.Recycle();
+			}
+			s.bullets.Clear();
+		}
 		shots.Clear();
 	}
 
@@ -52,6 +58,15 @@ public class BulletController : PlayerController
 	{
 		if ( fireCo != null )
 			StopCoroutine( fireCo );
+
+		foreach ( var s in shots ) {
+			foreach ( var b in s.bullets ) {
+				b.Recycle();
+			}
+			s.bullets.Clear();
+		}
+		shots.Clear();
+
 		base.Fin();
 	}
 
@@ -74,6 +89,10 @@ public class BulletController : PlayerController
 
 	void CheckFire()
 	{
+		if( c.stat.isDie ) {
+			return;
+		}
+
 		if ( Input.GetKeyDown( KeyCode.Space ) ) {
 			Fire();
 		}

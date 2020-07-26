@@ -93,10 +93,13 @@ public class SBall : Actor, IPoolObject, IDamagable
 	private void OnTriggerEnter2D( Collider2D col )
 	{
 		if ( col.tag == TagName.PLAYER ) {
-			col.GetComponent<IDamagable>().TakeDamage( new DamagableData() {
-				damage = power,
-				attacker = gameObject,
-			} );
+			var dmgable = col.GetComponent<IDamagable>();
+			if( dmgable != null) {
+				dmgable.TakeDamage( new DamagableData() {
+					damage = power,
+					attacker = gameObject,
+				} );
+			}
 		}
 	}
 

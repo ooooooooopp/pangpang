@@ -16,11 +16,13 @@ public class BossStone : MonoBehaviour
     {
         if (col.gameObject.tag == TagName.PLAYER)
         {
-            col.transform.GetComponent<IDamagable>().TakeDamage(new DamagableData()
-            {
-                damage = power,
-                attacker = gameObject,
-            });
+            var dmg = col.GetComponent<IDamagable>();
+            if ( dmg != null ) {
+                dmg.TakeDamage( new DamagableData() {
+                    damage = power,
+                    attacker = gameObject,
+                } );
+            }
         }
     }
     void Update()

@@ -24,7 +24,11 @@ public class Flame : Skill
 	public void OnTriggerEnter2D( Collider2D col )
 	{
 		if ( col.tag == TagName.BALL ) {
-			col.GetComponent<IDamagable>().TakeDamage( new DamagableData() {
+			var dmgable = col.GetComponent<IDamagable>();
+			if ( dmgable == null ) 
+				return;
+
+			dmgable.TakeDamage( new DamagableData() {
 				attacker = cGameObj,
 				damage = c.stat.atk,
 			} );

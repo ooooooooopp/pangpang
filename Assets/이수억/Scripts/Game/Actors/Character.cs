@@ -87,13 +87,19 @@ public class Character : Actor
 		bulletCon.Process();
 		moveCon.Process();
 		hud.Process();
+
+
+		if ( Input.GetKey( KeyCode.Q ) ) {
+			dmgChecker.TakeDamage( new DamagableData() {
+				damage = 10000,
+				attacker = cGameObj,
+			} );
+		}
 	}
 
 	public void OnDie()
 	{
-		Fin();
 		AudioController.Play( "GameOver" );
-		Destroy( gameObject );
 		StageManager.Inst.GameOver();
 	}
 

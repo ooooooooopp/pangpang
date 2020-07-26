@@ -195,10 +195,16 @@ public class StageManager : MonoBehaviour
 
     public void GameOver()
     {
-        FadeInOut.Inst.FadeOut( 2f, "Lobby" );
+        StartCoroutine( ClearCo() );
         AudioController.Play( "GameOver" );
     }
 
+    IEnumerator ClearCo()
+    {
+        yield return new WaitForSeconds( 2f );
+        StageMan.In.Fin();
+        FadeInOut.Inst.FadeOut( 1f, "Lobby" );
+    }
 
     public void StageNext()
     {

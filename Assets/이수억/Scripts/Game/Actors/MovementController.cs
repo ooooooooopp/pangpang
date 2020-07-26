@@ -128,7 +128,7 @@ public class MovementController : PlayerController
 
 				//if ( endActionCo != null ) StopCoroutine( endActionCo );
 				//endActionCo = StartCoroutine( EndActionCo( 0.2f, OnDieEnd ) );
-				Invoke( "OnDieEnd", 0.5f );
+				Invoke( "OnDieEnd", 1f );
 
 				break;
 			case PlayerState.hit:

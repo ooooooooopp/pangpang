@@ -30,11 +30,10 @@ public class StageMan : SingletonMonoD<StageMan>
 
 	}
 
-	void Fin()
+	public void Fin()
 	{
 		player.Fin();
 		Destroy( player.gameObject );
-
 		con.Fin();
 		PoolMgr.In.Destory();
 	}

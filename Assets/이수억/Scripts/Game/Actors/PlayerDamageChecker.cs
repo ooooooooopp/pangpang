@@ -17,6 +17,18 @@ public class PlayerDamageChecker : MonoBehaviour, IDamagable
 
 	}
 
+	//private void Update()
+	//{
+	//	if( Input.GetKeyDown(KeyCode.I ) ) {
+	//		TakeDamage( new DamagableData() {
+	//			damage = 1000000,
+	//			attacker = c.gameObject
+	//		} );
+
+	//		Log.to.I( "Cheat" );
+	//	}
+	//}
+
 	public bool TakeDamage( DamagableData data )
 	{
 		if( c.stat.isDivine ) {
