@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -58,6 +58,10 @@ public class StageManager : MonoBehaviour
         {
             
             Pause.SetActive(!Pause.activeSelf);
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            StageNext();
         }
     }
 
@@ -195,4 +199,9 @@ public class StageManager : MonoBehaviour
         AudioController.Play( "GameOver" );
     }
 
+
+    public void StageNext()
+    {
+
+    }
 }
