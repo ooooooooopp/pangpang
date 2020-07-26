@@ -22,7 +22,6 @@ namespace Projectile
 				fx.Activate( col.transform.position );
 				AudioController.Play( "BulletHit" );
 
-
 				if ( bullet.data.isPenetrate == false ) {
 					bullet.Recycle();
 				}
@@ -30,7 +29,7 @@ namespace Projectile
 				var fx = PoolFactory.In.GenerateFx( "BurstFx", StageMan.In.con.holder.bulletHolder );
 				fx.Activate( bullet.position );
 				bullet.Recycle();
-				//AudioController.Play( "BulletHit" );
+				AudioController.Play( "BulletHit" );
 			}
 		}
 	}

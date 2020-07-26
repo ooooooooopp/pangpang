@@ -50,6 +50,66 @@ public class Ability : MonoBehaviour
 		this.c = c;
 	}
 
+	public static string GetStrFromIdx(int idx)
+	{
+		return GetExplain( ConvertIdxToKind( idx ) );
+	}
+
+	public static AbilityKind ConvertIdxToKind(int index )
+	{
+		switch ( index ) {
+			case 1:
+				return AbilityKind.Double;
+			case 2:
+				return AbilityKind.Triple;
+			case 3:
+				return AbilityKind.BulletBonus_1;
+			case 4:
+				return AbilityKind.BulletBonus_2;
+			case 5:
+				return AbilityKind.BulletBonus_3;
+			case 6:
+				return AbilityKind.Divine;
+			case 7:
+				return AbilityKind.BulletSpdUp_1;
+			case 8:
+				return AbilityKind.BulletSpdUp_2;
+			case 9:
+				return AbilityKind.BulletSpdUp_3;
+			case 10:
+				return AbilityKind.PowerUp_1;
+			case 11:
+				return AbilityKind.PowerUp_2;
+			case 12:
+				return AbilityKind.PowerUp_3;
+			case 13:
+				return AbilityKind.HpUp_1;
+			case 14:
+				return AbilityKind.HpUp_2;
+			case 15:
+				return AbilityKind.HpUp_3;
+			case 16:
+				return AbilityKind.MovSpdUp_1;
+			case 17:
+				return AbilityKind.MovSpdUp_2;
+			case 18:
+				return AbilityKind.MovSpdUp_3;
+			case 19:
+				return AbilityKind.AroundBall;
+			case 20:
+				return AbilityKind.Penetrate;
+			case 21:
+				return AbilityKind.Flame;
+			case 22:
+				return AbilityKind.Healing_1;
+			case 23:
+				return AbilityKind.Healing_2;
+			case 24:
+				return AbilityKind.Healing_3;
+		}
+		return AbilityKind.None;
+	}
+
 	public static string GetExplain(AbilityKind kind)
 	{
 		switch ( kind ) {
