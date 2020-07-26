@@ -32,12 +32,27 @@ public class SlotMachineManager : MonoBehaviour
 
     public int[] check;
 
+    public Text text1;
+    public Text text2;
+    public Text text3;
+
+   
+    public List<int> a = new List<int>();
+
+    public int[] bbb = new int[3];
+    public int aindex = 0;
 
     // Start is called before the first frame update
 
 
 
     public List<Sprite> sprList = new List<Sprite>();
+
+    public int aa;
+    public int aaa;
+    public int aaaa;
+
+    public int cnt = 0;
     private void Awake()
     {
         check = new int[SkillSprite.Length];
@@ -51,7 +66,9 @@ public class SlotMachineManager : MonoBehaviour
     }
     void OnEnable()
     {
-
+        aa = 0;
+        aaa = 0;
+        aaaa = 0;
         for (int i = 0; i < ItemCnt * Slot.Length; i++)
         {
             StartList.Add(i);
@@ -71,12 +88,15 @@ public class SlotMachineManager : MonoBehaviour
                 if (i == 0 && j == 1 || i == 1 && j == 0 || i == 2 && j == 2)
                 {
                     ResultIndexList.Add(StartList[randomIndex]);
+                    //Debug.Log(StartList[randomIndex]);
 
                 }
 
                 if (SkillSprite[StartList[randomIndex]] != null)
                 {
+                    //Debug.Log(StartList[randomIndex]);
                     DisplayItemSlots[i].SlotSprite[j].sprite = SkillSprite[StartList[randomIndex]];
+                    //Debug.Log(SkillSprite[StartList[randomIndex]]);
                 }
                 else
                 {
@@ -103,8 +123,15 @@ public class SlotMachineManager : MonoBehaviour
                 if (j == 0)
                 {
                     DisplayItemSlots[i].SlotSprite[ItemCnt].sprite = SkillSprite[StartList[randomIndex]];
+                
+                    Debug.Log(DisplayItemSlots[i].SlotSprite[ItemCnt].sprite.name);
+                    aa = int.Parse(DisplayItemSlots[i].SlotSprite[ItemCnt].sprite.name);
 
+
+                    bbb[cnt++] = aa;
                 }
+                
+              
                 StartList.RemoveAt(randomIndex);
             }
         }
@@ -114,6 +141,8 @@ public class SlotMachineManager : MonoBehaviour
             StartCoroutine(StartSlot(i));
 
         }
+        textC();
+        
     }
 
     IEnumerator StartSlot(int SlotIndex)
@@ -136,7 +165,7 @@ public class SlotMachineManager : MonoBehaviour
             Slot[i].interactable = true;
         }
 
-
+        
     }
 
     public void AbilityButtonClick(int index)
@@ -269,6 +298,20 @@ public class SlotMachineManager : MonoBehaviour
            
 
 
+
+    }
+
+
+    void textC()
+    {
+        
+        text1.text = Ability.GetStrFromIdx(bbb[0]);
+        
+        text2.text = Ability.GetStrFromIdx(bbb[1]);
+
+        text3.text = Ability.GetStrFromIdx(bbb[2]);
+        
+        cnt = 0;
 
     }
 }
