@@ -50,6 +50,65 @@ public class Ability : MonoBehaviour
 		this.c = c;
 	}
 
+	public static string GetExplain(AbilityKind kind)
+	{
+		switch ( kind ) {
+			case AbilityKind.None:
+				break;
+			case AbilityKind.Double:
+				return "미사일이 두개";
+			case AbilityKind.Triple:
+				return "3갈래 탄";
+			case AbilityKind.BulletBonus_1:
+				return "총알 추가 Lv1";
+			case AbilityKind.BulletBonus_2:
+				return "총알 추가 Lv2";
+			case AbilityKind.BulletBonus_3:
+				return "총알 추가 Lv3";
+			case AbilityKind.Divine:
+				return "간헐적 무적";
+			case AbilityKind.BulletSpdUp_1:
+				return "총알 속도증가 Lv1";
+			case AbilityKind.BulletSpdUp_2:
+				return "총알 속도증가 Lv2";
+			case AbilityKind.BulletSpdUp_3:
+				return "총알 속도증가 Lv3";
+			case AbilityKind.PowerUp_1:
+				return "공격력 증가 Lv1";
+			case AbilityKind.PowerUp_2:
+				return "공격력 증가 Lv2";
+			case AbilityKind.PowerUp_3:
+				return "공격력 증가 Lv3";
+			case AbilityKind.HpUp_1:
+				return "체력 증가 Lv1";
+			case AbilityKind.HpUp_2:
+				return "체력 증가 Lv2";
+			case AbilityKind.HpUp_3:
+				return "체력 증가 Lv3";
+			case AbilityKind.MovSpdUp_1:
+				return "이동속도증가 Lv1";
+			case AbilityKind.MovSpdUp_2:
+				return "이동속도증가 Lv2";
+			case AbilityKind.MovSpdUp_3:
+				return "이동속도증가 Lv3";
+			case AbilityKind.AroundBall:
+				return "빙빙돌이";
+			case AbilityKind.Penetrate:
+				return "관통";
+			case AbilityKind.Flame:
+				return "불길생성";
+			case AbilityKind.Healing_1:
+				return "체력 재생 Lv1";
+			case AbilityKind.Healing_2:
+				return "체력 재생 Lv2";
+			case AbilityKind.Healing_3:
+				return "체력 재생 Lv3";
+			default:
+				break;
+		}
+		return string.Empty;
+	}
+
 
 }
 
