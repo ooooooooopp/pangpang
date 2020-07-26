@@ -17,7 +17,21 @@ public class Boss : MonoBehaviour,IDamagable
     Coroutine attackCo = null;
     Coroutine chopCo = null;
     Coroutine rushCo = null;
-    private SpriteRenderer spr;
+    public SpriteRenderer spr1;
+    public SpriteRenderer spr2;
+    public SpriteRenderer spr3;
+    public SpriteRenderer spr4;
+    public SpriteRenderer spr5;
+    public SpriteRenderer spr6;
+    public SpriteRenderer spr7;
+    public SpriteRenderer spr8;
+    public SpriteRenderer spr9;
+    public SpriteRenderer spr10;
+    public SpriteRenderer spr11;
+    public SpriteRenderer spr12;
+    public SpriteRenderer spr13;
+    public SpriteRenderer spr14;
+    public SpriteRenderer spr15;
 
     public GameObject coin;
 
@@ -27,7 +41,7 @@ public class Boss : MonoBehaviour,IDamagable
     private void Awake()
     {
         ani = GetComponent<Animator>();
-        spr = GetComponent<SpriteRenderer>();
+
     }
 
     void Start()
@@ -35,8 +49,18 @@ public class Boss : MonoBehaviour,IDamagable
         curHp = initHp;
     }
 
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            RushAttack();
+        }
+
+    }
+
     public bool TakeDamage(DamagableData data)
     {
+        Debug.Log("맞았다");
         curHp -= data.damage;
 
         hpBar.fillAmount = (curHp / initHp);
@@ -73,18 +97,60 @@ public class Boss : MonoBehaviour,IDamagable
         {
             if (countTime % 2 == 0)
             {
-                spr.color = new Color32(255, 255, 255, 90);
+                spr1.color = new Color32(255, 255, 255, 90);
+                spr2.color = new Color32(255, 255, 255, 90);
+                spr3.color = new Color32(255, 255, 255, 90);
+                spr4.color = new Color32(255, 255, 255, 90);
+                spr5.color = new Color32(255, 255, 255, 90);
+                spr6.color = new Color32(255, 255, 255, 90);
+                spr7.color = new Color32(255, 255, 255, 90);
+                spr8.color = new Color32(255, 255, 255, 90);
+                spr9.color = new Color32(255, 255, 255, 90);
+                spr10.color = new Color32(255, 255, 255, 90);
+                spr11.color = new Color32(255, 255, 255, 90);
+                spr12.color = new Color32(255, 255, 255, 90);
+                spr13.color = new Color32(255, 255, 255, 90);
+                spr14.color = new Color32(255, 255, 255, 90);
+                spr15.color = new Color32(255, 255, 255, 90);
             }
             else
             {
-                spr.color = new Color32(255, 255, 255, 180);
+                spr1.color = new Color32(255, 255, 255, 180);
+                spr2.color = new Color32(255, 255, 255, 180);
+                spr3.color = new Color32(255, 255, 255, 180);
+                spr4.color = new Color32(255, 255, 255, 180);
+                spr5.color = new Color32(255, 255, 255, 180);
+                spr6.color = new Color32(255, 255, 255, 180);
+                spr7.color = new Color32(255, 255, 255, 180);
+                spr8.color = new Color32(255, 255, 255, 180);
+                spr9.color = new Color32(255, 255, 255, 180);
+                spr10.color = new Color32(255, 255, 255, 180);
+                spr11.color = new Color32(255, 255, 255, 180);
+                spr12.color = new Color32(255, 255, 255, 180);
+                spr13.color = new Color32(255, 255, 255, 180);
+                spr14.color = new Color32(255, 255, 255, 180);
+                spr15.color = new Color32(255, 255, 255, 180);
             }
             yield return new WaitForSeconds(0.2f);
 
             countTime++;
 
         }
-        spr.color = new Color32(255, 255, 255, 255);
+        spr1.color = new Color32(255, 255, 255, 255);
+        spr2.color = new Color32(255, 255, 255, 255);
+        spr3.color = new Color32(255, 255, 255, 255);
+        spr4.color = new Color32(255, 255, 255, 255);
+        spr5.color = new Color32(255, 255, 255, 255);
+        spr6.color = new Color32(255, 255, 255, 255);
+        spr7.color = new Color32(255, 255, 255, 255);
+        spr8.color = new Color32(255, 255, 255, 255);
+        spr9.color = new Color32(255, 255, 255, 255);
+        spr10.color = new Color32(255, 255, 255, 255);
+        spr11.color = new Color32(255, 255, 255, 255);
+        spr12.color = new Color32(255, 255, 255, 255);
+        spr13.color = new Color32(255, 255, 255, 255);
+        spr14.color = new Color32(255, 255, 255, 255);
+        spr15.color = new Color32(255, 255, 255, 255);
 
         yield return null;
 
@@ -232,17 +298,19 @@ public class Boss : MonoBehaviour,IDamagable
         switch (z)
         {
             case 1:
+                /*
                 Debug.Log("첫번째 공격 장풍");
                 var c = Instantiate(AttackObj[0]);
                 c.transform.SetParent(gameObject.transform);
-                c.GetComponent<Transform>().localPosition = new Vector3(0f, -1f, 0f);
+                c.GetComponent<Transform>().localPosition = new Vector3(0f, 2f, 0f);
                 BossSkill();
+                */
                 break;
             case 2:
                 Debug.Log("두번째 공격 알쏘기");
                 var d = Instantiate(AttackObj[1]);
                 d.transform.SetParent(gameObject.transform);
-                d.GetComponent<Transform>().localPosition = new Vector3(0f, 0f, 0f);
+                d.GetComponent<Transform>().localPosition = new Vector3(0f, 2f, 0f);
                 BossSkill();
                 break;
             case 3:
