@@ -65,6 +65,7 @@ public class Character : Actor
 		moveCon.Init( this );
 		hud.Init( this );
 		dmgChecker.Init( this );
+
 		render.Init( this );
 	}
 

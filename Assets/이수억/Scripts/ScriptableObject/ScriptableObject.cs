@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 [CreateAssetMenu(menuName = "Scriptable/SpriteLib")]
 public class SpriteLibScriptable : SerializedScriptableObject
