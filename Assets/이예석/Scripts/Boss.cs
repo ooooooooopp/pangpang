@@ -38,6 +38,8 @@ public class Boss : MonoBehaviour,IDamagable
     public GameObject[] AttackObj = new GameObject[4];
 
 
+    public GameObject ef1;
+    public GameObject ef2;
     private void Awake()
     {
         ani = GetComponent<Animator>();
@@ -53,14 +55,14 @@ public class Boss : MonoBehaviour,IDamagable
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-            RushAttack();
+            ani.Play("BossAttackTwo");
         }
 
     }
 
     public bool TakeDamage(DamagableData data)
     {
-        Debug.Log("맞았다");
+
         curHp -= data.damage;
 
         hpBar.fillAmount = (curHp / initHp);
@@ -298,6 +300,8 @@ public class Boss : MonoBehaviour,IDamagable
         switch (z)
         {
             case 1:
+                //이펙트추가
+                ef1.SetActive(true);
                 /*
                 Debug.Log("첫번째 공격 장풍");
                 var c = Instantiate(AttackObj[0]);
@@ -307,6 +311,7 @@ public class Boss : MonoBehaviour,IDamagable
                 */
                 break;
             case 2:
+                ef2.SetActive(true);
                 Debug.Log("두번째 공격 알쏘기");
                 var d = Instantiate(AttackObj[1]);
                 d.transform.SetParent(gameObject.transform);
