@@ -58,17 +58,19 @@ public class timeS : MonoBehaviour
 
     void skillCheck()
     {
-        Debug.Log("1");
+      
         if(slotMachineManager.sprList.Count >= 1)
         {
 
-            Debug.Log("1");
+            
             for (int j=0; j < slotMachineManager.sprList.Count; j++)
             {
-                Debug.Log("2");
-                GameObject a= Instantiate(preFab, transform.position, Quaternion.identity);
-                a.GetComponent<Image>().sprite = slotMachineManager.sprList[j];
-                Debug.Log("3");
+              
+                GameObject aPrefab= Instantiate(preFab, transform.position, Quaternion.identity);
+                aPrefab.GetComponent<Image>().sprite = slotMachineManager.sprList[j];
+                aPrefab.transform.parent = tr;
+                aPrefab.transform.position = new Vector2(0, 0);
+               
             }
         }
         
