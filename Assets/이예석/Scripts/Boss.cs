@@ -40,6 +40,7 @@ public class Boss : MonoBehaviour,IDamagable
 
     public GameObject ef1;
     public GameObject ef2;
+    public GameObject ef3;
     private void Awake()
     {
         ani = GetComponent<Animator>();
@@ -55,7 +56,7 @@ public class Boss : MonoBehaviour,IDamagable
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-            ani.Play("BossAttackTwo");
+            ani.Play("BossAttackThr");
         }
 
     }
@@ -320,7 +321,7 @@ public class Boss : MonoBehaviour,IDamagable
                 break;
             case 3:
                 Debug.Log("세번째 공격 땅에서 손올리기");
-
+                ef3.SetActive(true);
                 ChopAttack();
                 break;
             case 4:
