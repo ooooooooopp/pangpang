@@ -89,12 +89,14 @@ public class Character : Actor
 		hud.Process();
 
 
+#if UNITY_EDITOR
 		if ( Input.GetKey( KeyCode.Q ) ) {
 			dmgChecker.TakeDamage( new DamagableData() {
 				damage = 10000,
 				attacker = cGameObj,
 			} );
 		}
+#endif
 	}
 
 	public void OnDie()
